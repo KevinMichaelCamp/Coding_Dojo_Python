@@ -2,7 +2,7 @@ Run the following commands:
 
 pip install Django==1.11.9
 	-
-pip list
+pip list - Lists pip installed packaged
 
 deactivate (This will deactivate your virtual environment)
 
@@ -12,7 +12,7 @@ source myEnvironments/py3Env/bin/activate (Adjust the path as needed to re-activ
 
 pip install Django==1.11.9 (We know you already ran this one. What information do you see returned in terminal after this command?)
 
-pip freeze (What's the difference between freeze and list?)
+pip freeze (What's the difference between freeze and list?)- outputs installed packages in requirements format
 
 First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
 

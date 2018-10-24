@@ -1,38 +1,38 @@
 # Functions Basic 1
 
-# 5
+# 1. - 5
 def a():
     return 5
 print(a())
 
-# 10
+# 2. - 10
 def a():
     return 5
 print(a()+a())
 
-# 5
+# 3. - 5
 def a():
     return 5
     return 110
 print(a())
 
-# 5
+# 4. - 5
 def a():
     print(5)
 x = a()
 print(x)
 
-# 8 -> WRONG -----> NONE, 3, 5
+# 5. - 8 -> WRONG -----> NONE, 3, 5
 def a(b,c):
     print(b+c)
 print(a(1,2) + a(2,3))
 
-# '25'
+# 6. - '25'
 def a(b,c):
     return str(b) + str(c)
 print(a(2,5))
 
-# dafuq
+# 7. - dafuq
 def a():
     b = 100
     print(b)
@@ -43,7 +43,7 @@ def a():
     return 7
 print(a())
 
-# # dafuq2
+# 8. - dafuq2
 def a(b,c):
     if b<c:
         return 7
@@ -54,13 +54,13 @@ print(a(2,3))
 print(a(5,3))
 print(a(2,3) + a(5,3))
 
-#??
+# 9. - ??
 def a(b,c):
     return b+c
     return 10
 print(a(3,5))
 
-#??
+# 10. - ??
 b = 500
 print(b)
 def a():
@@ -70,7 +70,7 @@ print(b)
 a()
 print(b)
 
-#??
+# 11. - ??
 b = 500
 print(b)
 def a():
@@ -81,7 +81,7 @@ print(b)
 a()
 print(b)
 
-#??
+# 12 - ??
 b = 500
 print(b)
 def a():
@@ -92,7 +92,7 @@ print(b)
 b=a()
 print(b)
 
-#??
+# 13 - ??
 def a():
     print(1)
     b()
@@ -101,7 +101,7 @@ def b():
     print(3)
 a()
 
-#??
+# 14 - ??
 def a():
     print(1)
     x = b()

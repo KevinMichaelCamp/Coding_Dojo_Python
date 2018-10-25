@@ -1,71 +1,111 @@
 # Functions Basic 1
 
 # 1. - 5
+
+
 def a():
     return 5
+
+
 print(a())
 
 # 2. - 10
+
+
 def a():
     return 5
-print(a()+a())
+
+
+print(a() + a())
 
 # 3. - 5
+
+
 def a():
     return 5
     return 110
+
+
 print(a())
 
 # 4. - 5
+
+
 def a():
     print(5)
+
+
 x = a()
 print(x)
 
 # 5. - 8 -> WRONG -----> NONE, 3, 5
-def a(b,c):
-    print(b+c)
-print(a(1,2) + a(2,3))
+
+
+def a(b, c):
+    print(b + c)
+
+
+print(a(1, 2) + a(2, 3))
 
 # 6. - '25'
-def a(b,c):
+
+
+def a(b, c):
     return str(b) + str(c)
-print(a(2,5))
+
+
+print(a(2, 5))
 
 # 7. - dafuq
+
+
 def a():
     b = 100
     print(b)
     if b < 10:
         return 5
-    else:
-        return 10
-    return 7
+
+
+         else:
+                 return 10
+ return 7
 print(a())
 
 # 8. - dafuq2
-def a(b,c):
-    if b<c:
+
+
+def a(b, c):
+    if b < c:
         return 7
     else:
         return 14
     return 3
-print(a(2,3))
-print(a(5,3))
-print(a(2,3) + a(5,3))
+
+
+print(a(2, 3))
+print(a(5, 3))
+print(a(2, 3) + a(5, 3))
 
 # 9. - ??
-def a(b,c):
-    return b+c
+
+
+def a(b, c):
+    return b + c
     return 10
-print(a(3,5))
+
+
+print(a(3, 5))
 
 # 10. - ??
 b = 500
 print(b)
+
+
 def a():
     b = 300
     print(b)
+
+
 print(b)
 a()
 print(b)
@@ -73,10 +113,14 @@ print(b)
 # 11. - ??
 b = 500
 print(b)
+
+
 def a():
     b = 300
     print(b)
     return b
+
+
 print(b)
 a()
 print(b)
@@ -84,31 +128,47 @@ print(b)
 # 12 - ??
 b = 500
 print(b)
+
+
 def a():
     b = 300
     print(b)
     return b
+
+
 print(b)
-b=a()
+b = a()
 print(b)
 
 # 13 - ??
+
+
 def a():
     print(1)
     b()
     print(2)
+
+
 def b():
     print(3)
+
+
 a()
 
 # 14 - ??
+
+
 def a():
     print(1)
     x = b()
     print(x)
     return 10
+
+
 def b():
     print(3)
     return 5
+
+
 y = a()
 print(y)

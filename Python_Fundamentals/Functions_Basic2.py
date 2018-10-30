@@ -8,7 +8,7 @@
 
 ## 3. - First Plus Length - Given an array, return the sum of the first value in the array, plus the array's length.
 
-
+dasd
 ## 4. - Values Greater Than Second - Write a function that accepts any array, and returns a new array with the array values that are greater than its 2nd value. Print how many values this is. If the array is only one element long, have the function return False.
 
 

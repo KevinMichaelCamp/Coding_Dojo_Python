@@ -1,37 +1,37 @@
-# # Functions Basic 1
-#
-# # 1. - 5
-# def a():
-#     return 5
-#
-#
-# print(a())
-#
-#
-# # 2. - 10
-# def a():
-#     return 5
-#
-#
-# print(a() + a())
-#
-#
-# # 3. - 5
-# def a():
-#     return 5
-#     return 110
-#
-#
-# print(a())
-#
-#
-# # 4. - 5
-# def a():
-#     print(5)
-#
-#
-# x = a()
-# print(x)
+# Functions Basic 1
+
+# 1. - 5
+def a():
+    return 5
+
+
+print(a())
+
+
+# 2. - 10
+def a():
+    return 5
+
+
+print(a() + a())
+
+
+# 3. - 5
+def a():
+    return 5
+    return 110
+
+
+print(a())
+
+
+# 4. - 5
+def a():
+    print(5)
+
+
+x = a()
+print(x)
 
 
 # 5. - 8 -> WRONG -----> NONE, 3, 5

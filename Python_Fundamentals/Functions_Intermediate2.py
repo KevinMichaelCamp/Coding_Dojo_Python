@@ -33,4 +33,7 @@ print(sports_directory)
 
 # For z, how would you change the value 20 to 30?
 
+z = [ {'x': 10, 'y': 30} ]
+print(z)
+
 # Problem 2

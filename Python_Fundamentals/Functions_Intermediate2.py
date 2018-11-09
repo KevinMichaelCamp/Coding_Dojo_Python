@@ -23,6 +23,9 @@ print(x)
 
 # How would you change the last_name of the first student from 'Jordan' to "Bryant"?
 
+students[0] = {'first_name': 'Michael', 'last_name': 'Bryant'}
+print(students)
+
 # For the sports_directory, how would you change 'Messi' to 'Andres'?
 
 # For z, how would you change the value 20 to 30?

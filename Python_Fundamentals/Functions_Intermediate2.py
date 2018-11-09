@@ -28,6 +28,9 @@ print(students)
 
 # For the sports_directory, how would you change 'Messi' to 'Andres'?
 
+sports_directory['soccer'] = ['Andres', 'Ronaldo', 'Rooney']
+print(sports_directory)
+
 # For z, how would you change the value 20 to 30?
 
 # Problem 2

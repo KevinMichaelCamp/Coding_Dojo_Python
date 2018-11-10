@@ -36,4 +36,18 @@ print(sports_directory)
 z = [ {'x': 10, 'y': 30} ]
 print(z)
 
-# Problem 2
+# Problem 2 - Create a function that given a list of dictionaries, it loops through each dictionary in the list and prints each key and the associated value.  For example, given the following list
+
+students = [
+     {'first_name':  'Michael', 'last_name' : 'Jordan'},
+     {'first_name' : 'John', 'last_name' : 'Rosales'},
+     {'first_name' : 'Mark', 'last_name' : 'Guillen'},
+     {'first_name' : 'KB', 'last_name' : 'Tonel'}
+]
+
+def iterateDict(dict):
+    for student in students:
+        for key, val in student.items:
+            print(key, " - ", val)
+
+iterateDict(students)

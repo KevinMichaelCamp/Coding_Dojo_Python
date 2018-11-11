@@ -47,7 +47,7 @@ students = [
 
 def iterateDict(dict):
     for student in students:
-        for item in students:
+        for key, val in student.items():
             print(key, " - ", val)
 
 iterateDict(students)

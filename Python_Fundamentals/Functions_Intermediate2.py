@@ -51,3 +51,9 @@ def iterateDict(dict):
             print(key, " - ", val)
 
 iterateDict(students)
+
+def iterateDict(dict):
+    for key, val in students.items():
+        print(key, " - ", val)
+
+iterateDict(students)

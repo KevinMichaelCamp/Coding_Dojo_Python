@@ -52,8 +52,11 @@ def iterateDict(dict):
 
 iterateDict(students)
 
-def iterateDict(dict):
-    for key, val in students.items():
-        print(key, " - ", val)
+# Problem 3 - Create a function that given a list of dictionaries and a key name, it outputs the value stored in that key for each dictionary.  For example, iterateDictionary2('first_name', students) should output first names
 
-iterateDict(students)
+def iterateDict2(lookup, dict):
+    for student in students:
+        for val in student.items():
+            print(lookup(val))
+            
+iterateDict2('first_name', students)

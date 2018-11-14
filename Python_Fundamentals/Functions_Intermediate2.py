@@ -56,7 +56,22 @@ iterateDict(students)
 
 def iterateDict2(lookup, dict):
     for student in students:
-        for val in student.items():
-            print(lookup(val))
-            
+        print(student[lookup])
+
 iterateDict2('first_name', students)
+
+# Problem 4 - Create a function that prints the name of each location and also how many locations the Dojo currently has.  Have the function also print the name of each instructor and how many instructors the Dojo currently has.  For example, printDojoInfo(dojo)
+
+dojo = {
+   'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+}
+
+def printDojoInfo(list):
+    for key in dojo:
+        print(len(dojo[key]))
+        print(key)
+        for val in dojo[key]:
+            print(val)
+
+printDojoInfo(dojo)

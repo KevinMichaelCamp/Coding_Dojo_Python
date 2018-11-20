@@ -29,11 +29,12 @@ class Product:
         elif reason == "like new":
             self.status = "for sale"
         elif reason == "opened":
-            self.price = round(self.price - (self.price * .2),2)
+            self.price = round(self.price - (self.price * .2), 2)
             self.status = "for sale"
         else:
             print("Invalid Reason")
         return self
+
 
 item1 = Product('Razor', 15.99, 'Bic', '.1 lbs')
 item1.displayInfo()

@@ -1,5 +1,6 @@
 # Bike Assignment
 
+
 class Bike:
     def __init__(self, price, max_speed, miles):
         self.price = price
@@ -22,6 +23,7 @@ class Bike:
         if self.miles > 0:
             self.miles -= 5
         return self
+
 
 bike1 = Bike(200, '30mph', 0)
 bike1.displayInfo()

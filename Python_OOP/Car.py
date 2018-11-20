@@ -18,6 +18,7 @@ class Car:
         print("Fuel: " + self.fuel)
         print("Mileage: " + self.mileage)
         print("Tax: " + self.tax)
+        return self
 
 
 car1 = Car(15000, '120mph', 'Full', '45mpg')

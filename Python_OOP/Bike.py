@@ -12,6 +12,7 @@ class Bike:
         print("$" + str(self.price))
         print("Max Speed - " + self.max_speed)
         print("Mileage - " + str(self.miles) + " miles")
+        return self
 
     def ride(self):
         print("Riding bike")

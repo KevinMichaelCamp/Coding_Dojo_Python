@@ -6,17 +6,20 @@ app = Flask(__name__)
 def index():
     return "Hello World!"
 
+
 @app.route('/dojo')
 def dojo():
     return "Dojo!"
+
 
 @app.route('/say/<name>')
 def say(name):
     return "Hi " + name
 
+
 @app.route('/repeat/<times>/<text>')
 def repeat(times, text):
-    return (text + " ")  * int(times)
+    return (text + " ") * int(times)
 
 
 if __name__ == "__main__":

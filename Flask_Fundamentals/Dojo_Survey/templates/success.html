@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>User Created</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>New User Info</h1>
+    <div class="container">
+      <ul>
+        <li>Name: {{ request.form['name'] }}</li>
+        <li>Dojo Location: {{ request.form['location'] }}</li>
+        <li>Favorite Language: {{ request.form['language'] }}</li>
+        <li>Comments: {{ request.form['comment'] }}</li>
+      </ul>
+      <a href="/"><button type="button" </button>Go Back</a> </div> </div> </body> </html>

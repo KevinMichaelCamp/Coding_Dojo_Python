@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dojo Survey</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Dojo Survey</h1>
+    <div id="container">
+      <form class="form" action="/users" method="post">
+        <ul>
+          <li>
+            <label>Name:</label>
+            <input type="text" name="name" value="" placeholder="Name">
+          </li>
+          <li>
+            <label>Dojo Location:</label>
+            <select name="location">
+              <option value="Berkeley, CA">Berkeley, CA</option>
+              <option value="Boise, ID">Boise, ID</option>
+              <option value="Chicago, IL">Chicago, IL</option>
+              <option value="Dallas, TX">Dallas, TX</option>
+              <option value="Los Angeles, CA">Los Angeles, CA</option>
+              <option value="Orange County, CA">Orange County, CA</option>
+              <option value="Seattle, WA">Seattle, WA</option>
+              <option value="Silicon Valley, CA">Silicon Valley, CA</option>
+              <option value="Tulsa, OK">Tulsa, OK</option>
+            </select>
+          </li>
+          <li>
+            <label>Favorite Language:</label>
+            <select name="language">
+              <option value="C#">C#</option>
+              <option value="Java">Java</option>
+              <option value="LAMP">LAMP</option>
+              <option value="MEAN">MEAN</option>
+              <option value="Python">Python</option>
+              <option value="Ruby">Ruby</option>
+            </select>
+          </li>
+          <li>
+            <label>Comments (optional)</label>
+            <textarea name="comment" rows="8" cols="40"></textarea>
+          </li>
+        </ul>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

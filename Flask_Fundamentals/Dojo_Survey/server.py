@@ -9,6 +9,7 @@ def index():
 
 @app.route('/users', methods=['POST'])
 def create_user():
+    print(request.form)
     name = request.form['name']
     location = request.form['location']
     language = request.form['language']
@@ -16,5 +17,5 @@ def create_user():
     return render_template('success.html')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

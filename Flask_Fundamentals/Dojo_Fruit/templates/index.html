@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Dojo Fruit Store</h1>
+      <div id="container">
+        <h2>What would you like to buy?</h2>
+        <form action="/checkout" method="post">
+          <table>
+            <tbody>
+              <tr>
+                <th>Fruit Name</th>
+                <th>Quantity</th>
+              </tr>
+              <tr>
+                <td>Strawberry</td>
+                <td>
+                  <input type="number" name="strawberry" min="0" max="100" placeholder="0">
+                </td>
+              </tr>
+              <tr>
+                <td>Raspberry</td>
+                <td>
+                  <input type="number" name="raspberry" min="0" max="100" placeholder="0">
+                </td>
+              </tr>
+              <tr>
+                <td>Apple</td>
+                <td>
+                  <input type="number" name="apple" min="0" max="100"  placeholder="0">
+                </td>
+              </tr>
+              <tr>
+                <td>Orange</td>
+                <td>
+                  <input type="number" name="orange" min="0" max="100" placeholder="0">
+                </td>
+              </tr>
+              <tr>
+                <td>Banana</td>
+                <td>
+                  <input type="number" name="banana" min="0" max="100" placeholder="0">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="textbox">
+            <p>Welcome to the Dojo Fruit Store!</p>
+            <p>Your dojo decided to buy fruits for all the students! Please use this app to tell us what you would like to have! Once we get your order we'll charge your account automatically.</p>
+            <p>Dojo Fruit Store is proudly built using Flask.</p>
+          </div>
+          <h2>Your Information:</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" name="name" value="" placeholder="Name"></td>
+              </tr>
+              <tr>
+                <td><label>Student ID:</label></td>
+                <td><input type="text" name="id" value="" placeholder="Student ID"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit">Place Order</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

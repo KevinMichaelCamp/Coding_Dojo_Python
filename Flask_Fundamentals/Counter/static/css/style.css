@@ -1,0 +1,23 @@
+body{
+  font-family: arial;
+}
+
+#wrapper{
+  width: 1000px;
+  text-align: center;
+}
+
+#container{
+  border: 2pt solid black;
+  border-radius: 5px;
+  padding: 50px;
+}
+
+a{
+  display: block;
+  margin: 20px;
+}
+
+button{
+  border-radius: 5px;
+}

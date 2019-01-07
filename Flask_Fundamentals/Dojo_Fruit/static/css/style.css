@@ -1,27 +1,31 @@
-body{
+body {
   font-family: arial;
 }
-#wrapper{
+
+#wrapper {
   width: 1000px;
   text-align: center;
 }
-#container{
+
+#container {
   border: 2pt solid black;
   border-radius: 5px;
   padding: 50px;
 }
-table{
+
+table {
   display: inline-block;
   margin: auto auto 40px auto;
   padding: 10px 50px;
   border: 1pt solid black;
   border-radius: 5px;
 }
-input{
+
+input {
   border-radius: 5px;
 }
 
-#textbox{
+#textbox {
   display: inline-block;
   width: 200px;
   margin-left: 150px;
@@ -30,11 +34,11 @@ input{
   background-color: rgb(158, 57, 142);
 }
 
-button{
+button {
   border-radius: 5px;
   margin-top: 20px;
 }
 
-h3{
+h3 {
   text-decoration: underline;
 }

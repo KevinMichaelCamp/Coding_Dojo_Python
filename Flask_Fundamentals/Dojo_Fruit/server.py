@@ -3,9 +3,11 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/checkout', methods=['POST'])
 def checkout():
@@ -23,8 +25,9 @@ def checkout():
     name = request.form['name']
     id = request.form['id']
 
-    fruit = (strawberry+raspberry+apple+orange+banana)
-    return render_template('checkout.html', fulldate = fulldate)
+    fruit = (strawberry + raspberry + apple + orange + banana)
+    return render_template('checkout.html', fulldate=fulldate)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     app.run(debug=True)

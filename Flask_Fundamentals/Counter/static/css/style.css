@@ -1,23 +1,23 @@
-body{
+body {
   font-family: arial;
 }
 
-#wrapper{
+#wrapper {
   width: 1000px;
   text-align: center;
 }
 
-#container{
+#container {
   border: 2pt solid black;
   border-radius: 5px;
   padding: 50px;
 }
 
-a{
+a {
   display: block;
   margin: 20px;
 }
 
-button{
+button {
   border-radius: 5px;
 }

@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
-  <body>
-    <div id="wrapper">
-      <h1>Thank you for your order!</h1>
-      <h2>You have ordered </h2>
-      <h2>Your student account has been charged on {{ fulldate }}</h2>
-      <div id="container">
-        <table>
-          <tbody>
-            <tr>
-              <th>Fruit</th>
-              <th>Quantity</th>
-            </tr>
-            <tr>
-              <td>Strawberries</td>
-              <td>{{ request.form['strawberry'] }}</td>
-            </tr>
-            <tr>
-              <td>Raspberries</td>
-              <td>{{ request.form['raspberry']}}</td>
-            </tr>
-            <tr>
-              <td>Apples</td>
-              <td>{{ request.form['apple']}}</td>
-            </tr>
-            <tr>
-              <td>Oranges</td>
-              <td>{{ request.form['orange']}}</td>
-            </tr>
-            <tr>
-              <td>Bananas</td>
-              <td>{{ request.form['banana']}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Your Information:</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>Name:</td>
-              <td>{{ request.form['name']}}</td>
-            </tr>
-            <tr>
-              <td>Student ID:</td>
-              <td>{{ request.form['id']}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Thank you for your order!</h1>
+    <h2>You have ordered </h2>
+    <h2>Your student account has been charged on {{ fulldate }}</h2>
+    <div id="container">
+      <table>
+        <tbody>
+          <tr>
+            <th>Fruit</th>
+            <th>Quantity</th>
+          </tr>
+          <tr>
+            <td>Strawberries</td>
+            <td>{{ request.form['strawberry'] }}</td>
+          </tr>
+          <tr>
+            <td>Raspberries</td>
+            <td>{{ request.form['raspberry']}}</td>
+          </tr>
+          <tr>
+            <td>Apples</td>
+            <td>{{ request.form['apple']}}</td>
+          </tr>
+          <tr>
+            <td>Oranges</td>
+            <td>{{ request.form['orange']}}</td>
+          </tr>
+          <tr>
+            <td>Bananas</td>
+            <td>{{ request.form['banana']}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Your Information:</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>Name:</td>
+            <td>{{ request.form['name']}}</td>
+          </tr>
+          <tr>
+            <td>Student ID:</td>
+            <td>{{ request.form['id']}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

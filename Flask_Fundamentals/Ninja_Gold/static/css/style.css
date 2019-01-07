@@ -1,0 +1,60 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  width: 1000px;
+}
+
+#container {
+  border: 2pt solid black;
+  border-radius: 5px;
+  padding: 50px;
+}
+
+label {
+  display: inline-block;
+}
+
+#goldbox {
+  display: inline-block;
+  vertical-align: bottom;
+  border: 1pt solid black;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  padding: 5px;
+}
+
+#gold {
+  margin: 5px auto;
+}
+
+#header {
+  padding: 20px;
+}
+
+.location {
+  display: inline-block;
+  width: 175px;
+  height: 175px;
+  padding: 20px;
+  text-align: center;
+  border: 1pt solid black;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#activities {
+  margin-top: 20px;
+  border: 1pt solid black;
+  border-radius: 5px;
+  width: 875px;
+  height: 200px;
+  padding-left: 10px;
+  overflow-y: scroll;
+}

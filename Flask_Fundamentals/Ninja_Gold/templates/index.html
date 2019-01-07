@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ninja Gold</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="container">
+      <div id="header">
+        <label>Your Gold:</label>
+        <div id="goldbox">
+          <p id="gold">{{ session['gold'] }}</p>
+        </div>
+      </div>
+      <div id="body">
+        <div class="location">
+          <h2>Farm</h2>
+          <p>(earns 10-20 gold)</p>
+          <form action="/process_money" method="post">
+            <input type="hidden" name="location" value="farm">
+            <button type="submit">Find Gold!</button>
+          </form>
+        </div>
+        <div class="location">
+          <h2>Cave</h2>
+          <p>(earns 5-10 gold)</p>
+          <form action="/process_money" method="post">
+            <input type="hidden" name="location" value="cave">
+            <button type="submit">Find Gold!</button>
+          </form>
+        </div>
+        <div class="location">
+          <h2>House</h2>
+          <p>(earns 2-5 gold)</p>
+          <form action="/process_money" method="post">
+            <input type="hidden" name="location" value="house">
+            <button type="submit">Find Gold!</button>
+          </form>
+        </div>
+        <div class="location">
+          <h2>Casino</h2>
+          <p>(earns/takes 0-50 gold)</p>
+          <form action="/process_money" method="post">
+            <input type="hidden" name="location" value="casino">
+            <button type="submit">Find Gold!</button>
+          </form>
+        </div>
+      </div>
+      <div id="activities">
+        <p>{{ activities|safe }}</p>
+      </div>
+      <a href="/reset"><button type="button">Reset Gold</button></a>
+    </div>
+  </div>
+</body>
+
+</html>

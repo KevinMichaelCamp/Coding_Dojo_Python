@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="registration">
+      <h1>User Registration Successful!</h1>
+      <table>
+        <tr>
+          <td>First Name:</td>
+          <td>{{ session['first_name']}}</td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td>{{ session['last_name']}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{ session['email']}}</td>
+        </tr>
+      </table>
+    </div>
+    <a href="/reset"><button>Reset Registration</button></a>
+  </div>
+</body>
+
+</html>

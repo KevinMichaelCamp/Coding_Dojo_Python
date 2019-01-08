@@ -1,9 +1,50 @@
-<meta charset="utf-8">
-<title>Registration Form</title>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
 </head>
+
 <body>
-<div id="wrapper">
-  <h1>Registration Form</h1>
-</div>
+  <div id="wrapper">
+    <h1>User Registration</h1>
+    <div id="registration">
+      <form action="/validate" method="post">
+        <table>
+          <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="first_name"></td>
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="last_name"></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email"></td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password"></td>
+          </tr>
+          <tr>
+            <td>Password Confirmation:</td>
+            <td><input type="password" name="confirmation"></td>
+          </tr>
+        </table>
+        <input type="submit" value="Submit">
+      </form>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+  </div>
 </body>
+
 </html>

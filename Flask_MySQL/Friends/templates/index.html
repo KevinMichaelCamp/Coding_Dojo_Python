@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>These are all my friends!</h1>
+
+      {% if friends %}
+        {% for friend in friends %}
+          <div class="friend_box">
+            <table>
+              <tr>
+                <td><label>First Name: </label></td>
+                <td> {{ friend['first_name'] }}</td>
+              </tr>
+              <tr>
+                <td><label>Last Name: </label></td>
+                <td> {{ friend['last_name'] }}</td>
+              </tr>
+              <tr>
+                <td><label>Occupation: </label></td>
+                <td> {{ friend['occupation'] }}</td>
+              </tr>
+            </table>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <h1>Add a friend</h1>
+      <form action="/create" method="post">
+        <table>
+          <tr>
+            <td><label>First Name: </label></td>
+            <td><input type="text" name="first_name"></td>
+          </tr>
+          <tr>
+            <td><label>Last Name: </label></td>
+            <td><input type="text" name="last_name"></td>
+          </tr>
+          <tr>
+            <td><label>Occupation: </label></td>
+            <td><input type="text" name="occupation"></td>
+          </tr>
+        </table>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>

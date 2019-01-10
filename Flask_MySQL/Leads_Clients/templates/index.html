@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leads and Clients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+      window.onload = function () {
+
+      var options = {
+        title: {
+          text: "Clients and Number of New Leads"
+        },
+        animationEnabled: true,
+        data: [{
+          type: "pie",
+          startAngle: 40,
+          toolTipContent: "<b>{label}</b>: {y}%",
+          showInLegend: "true",
+          legendText: "{label}",
+          indexLabelFontSize: 16,
+          indexLabel: "{label} - {y}",
+          dataPoints: [
+            {% if client_leads %}
+              {% for client in client_leads %}
+                { y: {{ client['num_leads']}}, label: "{{ client['first_name'] }} {{ client['last_name'] }}" },
+              {% endfor %}
+            {% endif %}
+          ]
+        }]
+      };
+      $("#chartContainer").CanvasJSChart(options);
+
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <form action="index.html" method="post">
+          <label>Beginning: </label>
+          <input type="date" name="start_date">
+          <label>Ending: </label>
+          <input type="date" name="end_date">
+          <button type="submit">Update</button>
+        </form>
+      </div>
+      <div id="summary">
+        <h1>List of all clients and number of leads</h1>
+        <table>
+          <tr>
+            <th>Client Name</th>
+            <th>Number of Leads</th>
+          </tr>
+          {% if client_leads %}
+            {% for client in client_leads %}
+              <tr>
+                <td>{{ client['first_name'] }} {{ client['last_name'] }}</td>
+                <td>{{ client['num_leads'] }}</td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        </table>
+      </div>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    </div>
+  </body>
+</html>

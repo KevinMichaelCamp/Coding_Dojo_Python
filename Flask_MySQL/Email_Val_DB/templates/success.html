@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Email Validation Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="success">
+        <p>The email address you entered {{ curr_email }} is a VALID email address! Thank you!</p>
+      </div>
+      <h2>Email Addresses Entered:</h2>
+      <form action="/delete" method="post">
+        {% if all_emails %}
+          {% for email in all_emails %}
+            <p>{{ email['email'] }} <button class="delete" type="hidden" value="{{ email['email'] }}" name="button">Delete</button></p>
+          {% endfor %}
+        {% endif %}
+      </form>
+      <a href="/goback"><button type="button">Go Back</button></a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  border: 2pt solid black;
+  border-radius: 5px;
+  width: 1000px;
+  margin: 20px;
+  padding: 50px;
+}
+
+form {
+  display: inline-block;
+}
+
+input, button {
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 20px;
+  display: block;
+}
+
+#success {
+  font-size: 1.2em;
+  background-color: green;
+  border: 1pt solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  text-shadow:
+    -.5px -.5px 0 #ffffff,
+    .5px -.5px 0 #ffffff,
+    -.5px .5px 0 #ffffff,
+    .5px .5px 0 #ffffff;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.red {
+  color: red;
+}
+
+.delete {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="green">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <h1>Welcome, {{ first_name }}! You are now loggin in</h1>
+      <h2>All Users</h2>
+      {% if all_users %}
+        <div id="tableWrapper">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+            </tr>
+            {% for user in all_users %}
+            <tr>
+              <td>{{ user['id'] }}</td>
+              <td>{{ user['first_name'] }}</td>
+              <td>{{ user['last_name'] }}</td>
+              <td>{{ user['email'] }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      {% endif %}
+      <a href="/logout"><button type="button">Logout</button></a>
+    </div>
+  </body>
+</html>

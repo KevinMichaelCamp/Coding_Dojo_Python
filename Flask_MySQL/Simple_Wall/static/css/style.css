@@ -1,10 +1,99 @@
-body{
+body {
   font-family: arial;
 }
-#wrapper{
+
+#wrapper {
   width: 1000px;
   border: 2pt solid black;
   border-radius: 5px;
   margin: auto;
   padding: 50px;
+}
+
+#register, #login {
+  display: inline-block;
+}
+
+#login {
+  vertical-align: top;
+  margin-left: 50px;
+}
+
+.red {
+  color: red;
+}
+
+label {
+  display: block;
+}
+
+input {
+  margin: 20px 0;
+  width: 400px;
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  border-radius: 5px;
+  background-color: rgb(80, 225, 60);
+  font-weight: bold;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#header {
+  border-bottom: 1pt solid black;
+}
+
+.inline, .welcome, .logout {
+  display: inline-block;
+}
+
+.welcome {
+  margin-left: 250px;
+}
+
+.logout {
+  margin: 25px 0 0 20px;
+  vertical-align: top;
+}
+
+.recieved, .send {
+  display: inline-block;
+  width: 475px;
+  vertical-align: top;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.recipient {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.send_button {
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  margin-left: 20px;
+}
+
+.comments {
+  margin: 0 20px;
+  display: inline-block;
+}
+
+.send {
+  margin-left: 20px;
+}
+
+.delete {
+  display: inline-block;
 }

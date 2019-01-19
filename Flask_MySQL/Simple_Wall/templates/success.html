@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1 class="inline">Coding Dojo Wall (Simplified)</h1>
+        <h2 class="welcome">Welcome {{ first_name }}!</h2>
+        <a href="/logout"><button class="logout" type="button">Logout</button></a>
+      </div>
+      <div class="recieved">
+        <h2 class="underline">{{ count }} Messages for you {{ first_name }}</h2>
+        {% if comments %}
+          {% for comment in comments %}
+            <p>{{ comment['first_name'] }} said {{ comment['created_at'] }}</p>
+            <table>
+              <tr>
+                <td><p class="comments">{{ comment['message'] }}</p></td>
+                <td><form action="/delete" method="post">
+                  <button class="delete" type="submit" name="button" value='{{ comment['id'] }}'>Delete</button>
+                </form></td>
+              </tr>
+            </table>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="send">
+        <h2 class="underline"> Send a message</h2>
+          <table>
+            {% if all_users %}
+              {% for user in all_users %}
+                <form action="/send" method="post">
+                <tr>
+                  <td>
+                    <input type="hidden" name="friend_id" value='{{ user['id'] }}'>
+                    <label class="recipient">{{ user['first_name'] }}</label>
+                  </td>
+                  <td>
+                    <textarea name="message" rows="4" cols="40"></textarea>
+                  </td>
+                  <td>
+                    <button class="send_button" type="submit" value='{{ user['id'] }}' name='button'>Send</button>
+                  </td>
+                </tr>
+                </form>
+              {% endfor %}
+            {% endif %}
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

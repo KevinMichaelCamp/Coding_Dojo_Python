@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Administrators</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <h1 class="inline" >Advanced Login - Admin Page</h1>
+      <p class="welcome" >Welcome {{ session['first_name'] }}! <a href="/logout"><button id="logout" type="button">log off</button></a></p>
+    </div>
+    <div id="users">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+        {% for user in all_users %}
+          {% if user %}
+            <tr>
+              <td>{{ user['id'] }}</td>
+              <td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+              <td>{{ user['email'] }}</td>
+              <td>
+                {% if user['user_level'] == 1: %}
+                  User
+                {% endif %}
+                {% if user['user_level'] == 9 %}
+                  Admin
+                {% endif %}
+              </td>
+
+              <td>
+                <form class="inline" action="/delete" method="post">
+                  <button class="remove" type="submit" name="id" value="{{ user['id'] }}">Remove</button>
+                </form>
+                <form class="inline" action="/addAdmin" method="post">
+                  {% if user['user_level'] == 1 %}
+                  <button class="remove" type="submit" name="addAdmin" value="{{ user['id'] }}">Make Admin</button>
+                  {% endif %}
+                </form>
+                <form class="inline" action="/removeAdmin" method="post">
+                  {% if user['user_level'] == 9 %}
+                    <button class="remove" type="submit" name="removeAdmin" value="{{ user['id'] }}">Remove Admin Access</button>
+                  {% endif%}
+                </form>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</body>
+</html>

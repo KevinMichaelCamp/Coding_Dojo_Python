@@ -106,7 +106,7 @@ def success():
     users_messages = mysql.query_db(query, data)
     message_count = len(users_messages)
 
-    return render_template('success.html', all_users = all_users, first_name = session['first_name'], comments = users_messages, count = message_count)
+    return render_template('success.html', all_users = all_users, first_name = session['first_name'], comments = users_messages, count = message_count, date = 'readable_date')
 
 @app.route('/send', methods = ['POST'])
 def send():

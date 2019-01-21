@@ -6,7 +6,7 @@ body {
   width: 1000px;
   border: 2pt solid black;
   border-radius: 5px;
-  margin: auto;
+  margin: 50px;
   padding: 50px;
 }
 
@@ -68,6 +68,11 @@ a {
   vertical-align: top;
 }
 
+textarea{
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -86,6 +91,7 @@ a {
 }
 
 .comments {
+  padding: 5px;
   margin: 0 20px;
   display: inline-block;
 }
@@ -96,4 +102,12 @@ a {
 
 .delete {
   display: inline-block;
+}
+.comment_table{
+  border: 1pt solid lightgrey;
+  border-radius: 5px;
+  padding: 10px;
+}
+#bold{
+  font-weight: bold;
 }

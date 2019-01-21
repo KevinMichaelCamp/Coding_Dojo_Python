@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Users</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <h1 class="inline" >Advanced Login - User Page</h1>
+      <a href="/logout"><button class="inline" type="button">log off</button></a>
+    </div>
+    <h2>Hi {{ session['first_name'] }} - </h2>
+    <p class="center">You are logged on as a normal user - no functionality unless admin</p>
+  </div>
+</body>
+
+</html>

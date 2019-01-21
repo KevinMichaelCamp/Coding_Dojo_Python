@@ -16,8 +16,8 @@
         <h2 class="underline">{{ count }} Messages for you {{ first_name }}</h2>
         {% if comments %}
           {% for comment in comments %}
-            <p>{{ comment['first_name'] }} said {{ comment['created_at'] }}</p>
-            <table>
+            <p id="bold">{{ comment['first_name'] }} said {{ comment['created_at'] }}</p>
+            <table class="comment_table">
               <tr>
                 <td><p class="comments">{{ comment['message'] }}</p></td>
                 <td><form action="/delete" method="post">

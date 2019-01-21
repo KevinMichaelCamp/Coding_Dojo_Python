@@ -1,7 +1,6 @@
 from flask import render_template, redirect, session
 from Email import app
 from Email.models.email import Validate, Delete, Success
-from mysqlconnection import connectToMySQL
 
 validate = Validate()
 delete = Delete()

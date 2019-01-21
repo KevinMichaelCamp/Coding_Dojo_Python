@@ -1,0 +1,58 @@
+body{
+  font-family: arial;
+}
+#wrapper{
+  width: 1000px;
+  border: 2pt solid black;
+  border-radius: 5px;
+  margin: auto;
+  padding: 50px;
+}
+#register, #login{
+  display: inline-block;
+}
+#login{
+  vertical-align: top;
+  margin-left: 50px;
+}
+.red{
+  color: red;
+}
+label{
+  display: block;
+}
+input{
+  margin: 20px 0;
+  width: 400px;
+  border-radius: 5px;
+}
+button{
+  display: block;
+  border-radius: 5px;
+  background-color: rgb(80, 225, 60);
+  font-weight: bold;
+  padding: 5px;
+}
+#tableWrapper{
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+table{
+  border-collapse: collapse;
+}
+th{
+  background-color: grey;
+  padding: 5px;
+}
+td{
+  background-color: lightgrey;
+  padding: 5px;
+}
+a{
+  text-decoration: none;
+}
+.green{
+  color: green;
+}

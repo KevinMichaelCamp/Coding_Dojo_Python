@@ -1,8 +1,7 @@
 from Friends import app
-from Friends.controllers.friends import Friends
-from Friends.controllers.friends import NewFriends
+from Friends.controllers.friends import Friends, NewFriends
 friends = Friends()
-new_friend = NewFriends()
+new_friends = NewFriends()
 
 @app.route('/')
 def index():
@@ -11,4 +10,4 @@ def index():
 
 @app.route('/create', methods=['POST'])
 def create():
-    return new_friend.create()
+    return new_friends.create()

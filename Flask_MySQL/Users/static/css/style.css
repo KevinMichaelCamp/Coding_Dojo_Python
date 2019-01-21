@@ -1,11 +1,56 @@
-body{
+body {
   font-family: arial;
 }
 
-#wrapper{
+#wrapper {
   width: 1000px;
   border: 2pt solid black;
   border-radius: 5px;
   margin: auto;
   padding: 50px;
+}
+
+a {
+  margin: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th {
+  background-color: grey;
+  color: white;
+  padding: 5px;
+}
+
+td {
+  background-color: lightgrey;
+  padding: 5px;
+}
+
+label, input {
+  display: block;
+  margin: 5px;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button {
+  border-radius: 5px;
+  display: block;
+  margin: 20px 0;
+  padding: 5px;
+}
+
+#userTable td {
+  background-color: white;
+}
+
+.red {
+  color: red;
 }

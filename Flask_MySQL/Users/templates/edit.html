@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Edit User Info</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>User {{ id }} Edit Info</h1>
+    <form action="/update" method="post">
+      <label>First Name: </label>
+      {% with errors = get_flashed_messages(category_filter=['first_name']) %}
+        {% if errors %}
+          {% for error in errors %}
+            <p class='red'>{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <input type="text" name="first_name" placeholder="Enter first name">
+      <label>Last Name: </label>
+      {% with errors = get_flashed_messages(category_filter=['last_name']) %}
+        {% if errors %}
+          {% for error in errors %}
+            <p class='red'>{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <input type="text" name="last_name" placeholder="Enter last name">
+      <label>Email: </label>
+      {% with errors = get_flashed_messages(category_filter=['email']) %}
+        {% if errors %}
+          {% for error in errors %}
+            <p class='red'>{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <input type="email" name="email" placeholder="email">
+      <button type="submit" name="button">Update</button>
+      <a href="/">Go Back</a>
+    </form>
+  </div>
+</body>
+
+</html>

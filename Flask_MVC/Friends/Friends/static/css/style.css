@@ -1,0 +1,33 @@
+body{
+  font-family: arial;
+}
+#wrapper{
+  width: 1000px;
+  border: 2pt solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 50px;
+}
+.friend_box{
+  padding: 5px; 
+  margin: auto;
+  width: 800px;
+  border-bottom: 1pt solid black;
+}
+table{
+  margin: auto;
+}
+label{
+  color: purple;
+  font-weight: bold;
+}
+input{
+  border-radius: 5px;
+}
+button{
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+  border-top: 5px;
+  background-color: lightgreen;
+}

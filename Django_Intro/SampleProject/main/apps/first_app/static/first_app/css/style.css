@@ -1,0 +1,30 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  border: 2pt solid black;
+  border-radius: 5px;
+  margin: auto;
+  padding: 50px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+  margin: 20px 0;
+}
+
+input, textarea {
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+button {
+  border-radius: 5px;
+  vertical-align: top;
+}

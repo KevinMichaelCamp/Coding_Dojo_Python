@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sample Django wEB fRAMe</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'first_app/css/style.css' %}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Hello {{ first_name }} {{last_name }}</h1>
+    <form action="/create" method="post">
+      {% csrf_token %}
+      <label for="name">Blog Name:</label>
+      <input type="text" name="name" placeholder="Enter blog name">
+      <label for="desc">Description:</label>
+      <textarea name="desc" placeholder="Enter description"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>

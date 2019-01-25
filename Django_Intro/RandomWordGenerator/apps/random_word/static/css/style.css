@@ -1,0 +1,15 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  border: 2pt solid black;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 50px;
+  width: 1000px;
+}
+
+button {
+  border-radius: 5px;
+}

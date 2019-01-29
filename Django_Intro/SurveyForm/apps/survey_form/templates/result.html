@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Survey Results</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="success">
+      <h2>Thanks for submitting this form! You have submitted this form {{ count }} times now.</h2>
+    </div>
+    <h1>Survey Results</h1>
+    <table>
+      <tr>
+        <td><label>Your Name:</label></td>
+        <td> {{ name }}</td>
+      </tr>
+      <tr>
+        <td><label>Dojo Location:</label></td>
+        <td> {{ location }}</td>
+      </tr>
+      <tr>
+        <td><label>Favorite Language:</label></td>
+        <td> {{ language }}</td>
+      </tr>
+      <tr>
+        <td><label>Comments:</label></td>
+        <td> {{ comment }}</td>
+      </tr>
+    </table>
+    <a href="/"><button type="button">Go Back</button></a>
+    <a href="reset"><button type="button">Reset Counter</button></a>
+  </div>
+</body>
+
+</html>

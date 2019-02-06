@@ -9,3 +9,26 @@ body {
   padding: 50px;
   width: 1000px;
 }
+
+input {
+  border-radius: 5px;
+}
+
+li {
+  list-style: none;
+  margin: 0 0 10px -40px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+.left, .right {
+  display: inline-block;
+  width: 400px;
+}
+
+.right {
+  margin-top: 50px;
+  vertical-align: top;
+}

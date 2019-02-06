@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Session Words</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    <div id="wrapper">
+
+<head>
+  <meta charset="utf-8">
+  <title>Session Words</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="left">
       <h1>Session Words</h1>
+      <h2>Add a new word</h2>
+      <form action="create" method="post">
+      {% csrf_token %}
+        <ul>
+          <li><input type="text" name="words" placeholder="Enter word"></li>
+          <li><h2>Choose color</h2></li>
+          <li><input type="radio" name="color" value="red">Red</li>
+          <li><input type="radio" name="color" value="green">Green</li>
+          <li><input type="radio" name="color" value="blue">Blue</li>
+          <li><input type="checkbox" name="size" value="big">Show in BIG fonts!</li>
+        </ul>
+        <button type="submit">Add to Session</button>
+      </form>
     </div>
-  </body>
+    <div class="right">
+      <a href="clear"><button type="button">Clear Session</button></a>
+      {% if request.session.words %}
+        {% for word in request.session.words %}
+          <p style='color: {{word.color}}; font-size: {{word.font}}'>{{word.word}} - added on {{word.time}}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</body>
 </html>

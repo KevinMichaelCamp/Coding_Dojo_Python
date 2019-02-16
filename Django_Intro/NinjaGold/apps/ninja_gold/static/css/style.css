@@ -1,0 +1,58 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  border: 2pt solid black;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 50px;
+  width: 1000px;
+}
+
+h2 {
+  display: inline-block;
+}
+
+#gold {
+  border: 1pt solid black;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 20px;
+  padding: 5px;
+  width: 100px;
+}
+
+#body {
+  text-align: center;
+}
+
+.location {
+  border: 2pt solid black;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 175px;
+}
+
+#activities {
+  border: 2pt solid black;
+  border-radius: 5px;
+  height: 250px;
+  overflow-y: scroll;
+  padding: 10px;
+  width: 1000px;
+}
+
+a {
+  margin-left: 600px;
+  text-decoration: none;
+}
+
+button {
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px;
+}

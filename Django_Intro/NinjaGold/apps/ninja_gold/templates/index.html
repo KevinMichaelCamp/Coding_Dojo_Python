@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ninja Gold</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <h2>Your Gold:</h2>
+      <p id="gold">{{ request.session.gold }}</p>
+      <a href="clear"><button type="button">Clear Session</button></a>
+    </div>
+    <div id="body">
+      <div class="location">
+        <h1>Farm</h1>
+        <p>(earns 10-20 gold)</p>
+        <form action="process" method="post">
+          {% csrf_token %}
+          <button type="submit" name="button" value="farm">Find Gold!</button>
+        </form>
+      </div>
+      <div class="location">
+        <h1>Cave</h1>
+        <p>(earns 5-10 gold)</p>
+        <form action="process" method="post">
+          {% csrf_token %}
+          <button type="submit" name="button" value="cave">Find Gold!</button>
+        </form>
+      </div>
+      <div class="location">
+        <h1>House</h1>
+        <p>(earns 2-5 gold)</p>
+        <form action="process" method="post">
+          {% csrf_token %}
+          <button type="submit" name="button" value="house">Find Gold!</button>
+        </form>
+      </div>
+      <div class="location">
+        <h1>Casino</h1>
+        <p>(earns/takes 0-50 gold)</p>
+        <form action="process" method="post">
+          {% csrf_token %}
+          <button type="submit" name="button" value="casino">Find Gold!</button>
+        </form>
+      </div>
+    </div>
+    <div id="footer">
+      <h2>Activities</h2>
+      <div id="activities">
+        {% if request.session.messages %}
+          {% for activity in request.session.messages %}
+            <p>{{ activity }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

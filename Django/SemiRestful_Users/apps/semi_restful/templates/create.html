@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create New User</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Create New User</h1>
+      <form action="validate" method="post">
+        {% csrf_token %}
+        <label>First Name:</label>
+        <input type="text" name="first_name" placeholder="Enter First Name">
+        <label>Last Name:</label>
+        <input type="text" name="last_name" placeholder="Enter Last Name">
+        <label>Email:</label>
+        <input type="text" name="email" placeholder="Enter Email">
+        <button type="submit">Create User</button>
+      </form>
+      <a href="/clear"><button type="button">Clear Session</button></a>
+      <a href="/"><button type="button">Go Back</button></a>
+      {% for message in messages %}
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </body>
+</html>

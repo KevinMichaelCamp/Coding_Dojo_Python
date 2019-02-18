@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Semi Restful Users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <h1>Users</h1>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        {% if user %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.first_name }} {{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.created_at }}</td>
+          <td><a href="show/{{ user.id }}">Show</a><a href="edit/{{ user.id }}">Edit</a><a href="delete/{{ user.id }}">Delete</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </table>
+      <a href="create"><button type="button">Create New User</button></a>
+      <a href="/clear"><button type="button">Clear Session</button></a>
+      {% for message in messages %}
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </body>
+
+</html>

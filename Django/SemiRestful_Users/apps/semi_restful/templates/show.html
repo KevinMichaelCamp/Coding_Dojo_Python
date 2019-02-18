@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Show User</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>User {{ user.id }}</h1>
+      <label>Full Name: </label>
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
+      <label>Email: </label>
+      <p>{{ user.email }}</p>
+      <label>Created At: </label>
+      <p>{{ user.created_at }}</p>
+      <a href="/edit/{{ user.id }}"><button type="button">Edit</button></a>
+      <a href="/delete/{{ user.id }}"><button type="button">Delete</button></a>
+      <a href="/"><button type="button">Go Back</button></a>
+    </div>
+  </body>
+</html>

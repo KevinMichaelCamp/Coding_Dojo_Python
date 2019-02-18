@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Courses</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Courses</h1>
+    <h2>Add a New Course</h2>
+    <form action="create" method="post">
+      {% csrf_token %}
+      <ul>
+        <li>Name:</li>
+        <li><input type="text" name="name" placeholder="Enter Course Name"></li>
+        <li>Description:</li>
+        <li><textarea name="desc" rows="10" cols="50" placeholder="Enter Course Description"></textarea></li>
+        <li><button type="submit">Add Course</button></li>
+      </ul>
+    </form>
+    <h2>Courses</h2>
+    <table>
+      <tr>
+        <th>Course Name</th>
+        <th>Description</th>
+        <th>Date Added</th>
+        <th>Actions</th>
+      </tr>
+      {% for course in courses %}
+      {% if course %}
+      <tr>
+        <td>{{ course.name }}</td>
+        <td>{{ course.description.desc }}</td>
+        <td>{{ course.created_at }}</td>
+        <td><a href="{% url 'confirm' id=course.id %}">Delete</a></td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+    {% for error in messages %}
+    {% if error %}
+    <p id='error'>{{ error }}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+</body>
+</html>

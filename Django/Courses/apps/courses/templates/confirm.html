@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Confirm Delete</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Are you sure you want to delete the following course?</h1>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{ course.name }}</td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>{{ course.description.desc}}</td>
+        </tr>
+      </table>
+      <a href="/"><button type="button">No</button></a>
+      <a href="{% url 'delete' id=course.id %}"><button id="red" type="button">Yes, Delete Course</button></a>
+    </div>
+  </body>
+</html>

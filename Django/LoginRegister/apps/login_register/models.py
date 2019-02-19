@@ -35,8 +35,8 @@ class UserManager(models.Manager):
         errors = {}
         if len(User.objects.filter(email = postData['email'])):
             user = User.objects.get(email = postData['email'])
-            if bcrypt.checkpw(postData['password'].encode(), user.password.encode()):
-                return user
+            if bcrypt.checkpw(postData['password'].encode(), user.password):
+                return errors
             else:
                 errors['login'] = "Email/password incorrect"
                 return errors
@@ -48,7 +48,7 @@ class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
+    password = models.BinaryField(max_length=255)
     confirm = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>The Wall - Login & Registration</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="registration">
+      <h1>Registration</h1>
+      <form action="register" method="post">
+        {% csrf_token %}
+        <label>First Name:</label>
+        <input type="text" name="first_name" placeholder="Enter First Name">
+        <label>Last Name:</label>
+        <input type="text" name="last_name" placeholder="Enter Last Name">
+        <label>Email Address:</label>
+        <input type="email" name="email" placeholder="Enter Email">
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <label>Confirm Password:</label>
+        <input type="password" name="pw_confirm" placeholder="Reenter Password">
+        <button type="submit">Register</button>
+      </form>
+      {% for message in messages %}
+        <p class="red">{{ message }}</p>
+      {% endfor %}
+    </div>
+    <div id="login">
+      <h1>Login</h1>
+      <form action="login" method="post">
+        {% csrf_token %}
+        <label>Email Address:</label>
+        <input type="email" name="email" placeholder="Enter Email">
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

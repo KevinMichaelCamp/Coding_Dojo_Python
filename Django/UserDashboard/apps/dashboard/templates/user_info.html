@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+  <title>User Information</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h2>Test App</h2>
+      <h4><a class="black" href="/user_dashboard">Dashboard</a></h4>
+      <h4><a class="black" href="/user_edit">Profile</a></h4>
+      <a class="margin" href="/logout">Log off</a>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>{{ user.first_name }} {{ user.last_name }}</h5>
+        <p><span class="bold">Registered at:</span> {{ user.created_at }}</p>
+        <p><span class="bold">User ID:</span> {{ user.id }}</p>
+        <p><span class="bold">Email Address:</span> {{ user.email }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="top">Leave a message for {{ user.first_name }}</h4>
+        <form action="/message/{{ user.id }}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="sender" value='{{ request.session.id }}'>
+          <textarea name="message" rows="4" cols="80"></textarea>
+          <button type="submit">Post</button>
+        </form>
+      </div>
+    </div>
+    {% for message in messages %}
+    <div class="row">
+      <div class="col">
+        <p class="inline">{{ message.sender.first_name }} {{ message.sender.last_name }} wrote:</p>
+        <p class="inline_indent">{{ message.created_at }}</p>
+        <p class="box">{{ message.message }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>

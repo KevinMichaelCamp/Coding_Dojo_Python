@@ -1,0 +1,48 @@
+.page-header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+.page-header h2, h4 {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.black {
+  color: black;
+}
+
+.margin{
+  margin-left: 500px;
+}
+
+button {
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+table {
+  margin-top: 50px;
+}
+
+th {
+  background-color: grey;
+  padding: 10px;
+}
+
+td {
+  background-color: lightgrey;
+  padding: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.action {
+  margin-right: 10px;
+}
+
+.red {
+  color: red;
+}

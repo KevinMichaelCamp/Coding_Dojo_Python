@@ -1,0 +1,23 @@
+.page-header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+.page-header h2, h4 {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.page-header a {
+  margin-left: 700px;
+}
+
+button {
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+button a {
+  color: black;
+}

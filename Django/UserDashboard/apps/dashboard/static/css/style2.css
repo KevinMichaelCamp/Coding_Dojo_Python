@@ -1,0 +1,37 @@
+.page-header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+.page-header h2, h4 {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.page-header a {
+  margin-left: 700px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  border-radius: 5px;
+  background-color: lightgreen;
+  display: block;
+  margin: 0 0 50px 100px;
+}
+
+.red {
+  color: red;
+}

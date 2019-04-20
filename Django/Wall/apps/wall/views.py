@@ -37,6 +37,8 @@ def register(request):
             password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
         )
         messages.success(request, "Welcome {{ user.first_name }}")
+        user = User.objects.filter(email=request.POST['email'])
+        request.session['id'] = user[0].id
         return redirect('/success')
 
 def success(request):

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>User Dashboard</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h2>Test App</h2>
+      <h4>Home</h4>
+      <a href="/signin">Sign In</a>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="jumbotron">
+        <h1>Welcome to the Test</h1>
+        <p>This is an example of a web application using an MVC framework. This application was built with the Village88 folks! </p>
+        <button type="button"><a href="/signin">Start</a></button>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>Manage Users</h4>
+        <p>Using this application, you will be able to add, remove and edit users for the applciation.</p>
+      </div>
+      <div class="col">
+        <h4>Leave Messages</h4>
+        <p>Users will be able to leave messages to one another using this application.</p>
+      </div>
+      <div class="col">
+        <h4>Edit User Information</h4>
+        <p>Admins will be able to edit another user's information (email adress, first name, last name, etc.).</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+    <title>Add New User</title>
+  </head>
+
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h2>Test App</h2>
+      <h4><a class="black" href="/user_dashboard">Dashboard</a></h4>
+      <h4>Profile</h4>
+      <a class="margin" href="/logout">Log off</a>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1>Add a New User</h1>
+        <form action="admin_add" method="post">
+          {% csrf_token %}
+          <label>First Name:</label>
+          <input type="text" name="first_name" placeholder="Enter first name">
+          <label>Last Name:</label>
+          <input type="text" name="last_name" placeholder="Enter last name">
+          <label>Email Address:</label>
+          <input type="email" name="email" placeholder="Enter email">
+          <label>Password:</label>
+          <input type="password" name="password" placeholder="Enter password">
+          <label>Confirm Password:</label>
+          <input type="password" name="pw_confirm" placeholder="Reenter password">
+          <button type="submit">Register</button>
+        </form>
+        {% if messages %}
+          {% for message in messages %}
+            <p class="red">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

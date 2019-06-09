@@ -1,0 +1,39 @@
+body{
+  font-family: arial;
+}
+
+#wrapper{
+  padding: 20px;
+}
+
+.login_reg {
+  border: 2pt solid black;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 50px;
+  padding: 20px;
+  vertical-align: top;
+  width: 400px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 250px;
+}
+
+button {
+  border-radius: 5px;
+  display: block;
+  margin: 50px 0 0 200px;
+}
+
+#errors {
+  color: red;
+}

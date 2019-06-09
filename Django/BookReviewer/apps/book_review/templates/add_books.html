@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/add_books.css' %}">
+  <title>Add Book and Review</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <h1>Add Book & Review</h1>
+      <a class="link_margin" href="books">Home</a>
+      <a class="link_margin" href="library">Book/User Lists</a>
+      <a href="logout">Logout</a>
+    </div>
+    <div id="body">
+      <h3>Add a New Book Title and Review:</h3>
+      <form action="/add" method="post">
+        {% csrf_token %}
+        <ul>
+          <li><label class="bold">Book Title:</label>
+          <input class="title" type="text" name="title"></li>
+          <li><label class="bold">Author:</label></li>
+          <li><label class="indent">Choose from list:</label><select  name="author_id">
+            {% for author in authors %}
+              <option value="{{ author.id }}">{{ author.author }}</option>
+            {% endfor %}
+          </select></li>
+          <li><label class="indent">Add new author:</label><input class="author" type="text" name="author"></li>
+          <li><label class="bold">Review:</label><textarea name="review" rows="8" cols="70"></textarea></li>
+          <li><label class="bold">Rating:</label><input type="number" name="rating" min="0" max="5" placeholder="0"><label class="bold">stars</label></li>
+          <li><button type="submit">Add Book and Review</button></li>
+        </ul>
+      </form>
+    </div>
+    {% for message in messages %}
+      <p class="red">{{ message }}</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

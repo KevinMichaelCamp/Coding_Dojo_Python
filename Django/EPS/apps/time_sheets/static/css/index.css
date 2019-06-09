@@ -1,0 +1,20 @@
+.alert {
+  margin-top: 20px;
+}
+
+button {
+  display: block!important;
+}
+
+input {
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.jumbotron {
+  padding: 35px 0;
+}
+
+label {
+  display: block;
+}

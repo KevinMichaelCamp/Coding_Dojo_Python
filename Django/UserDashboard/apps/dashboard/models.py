@@ -13,7 +13,7 @@ class UserManager(models.Manager):
         if len(postData['first_name']) < 2:
             errors['first_name'] = "First name must be at least 2 characters"
         if not NAME_REGEX.match(postData['first_name']):
-            errors['first_name'] = "First name must only contain lettters"
+            errors['first_name'] = "First name must only contain letters"
 
         if len(postData['last_name']) < 2:
             errors['last_name'] = "Last name must be at least 2 characters"

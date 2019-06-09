@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/users.css' %}">
+  <title>User List</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="header">
+      <h1>All Users & Books</h1>
+      <a class="link_margin" href="new_book">Add Book and Review</a>
+      <a class="link_margin" href="books">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
+    <div id="users">
+      <h2>User List</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Alias</th>
+          <th>Email</th>
+          <th>Created At</th>
+        </tr>
+        {% if users %}
+        {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td><a href="/user_reviews/{{ user.id }}"></a>{{ user.name }}</td>
+          <td>{{ user.alias }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.created_at }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </table>
+    </div>
+    <div class="books">
+      <h2>All Books</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Uploaded On</th>
+        </tr>
+        {% if books %}
+        {% for book in books %}
+        <tr>
+          <td>{{ book.id }}</td>
+          <td><a href="/display/{{ book.id }}"></a>{{ book.title }}</td>
+          <td>{{ book.author.author }}</td>
+          <td>{{ book.created_at }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

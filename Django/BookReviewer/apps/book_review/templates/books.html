@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+    <title>Books Home</title>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1>Welcome, {{ user.name }}!</h1>
+        <a class="link_margin" href="new_book">Add Book and Review</a>
+        <a class="link_margin" href="library">Book/User Lists</a>
+        <a href="logout">Logout</a>
+      </div>
+      <div id="reviews">
+        <h2>Recent Book Reviews:</h2>
+        <div class="review_box">
+          {% for review in reviews %}
+          <div class="review">
+              <h3><a href="display/{{ review.book.id }}">{{ review.book.title }}</a></h3>
+              <h4 class="indent">Rating: {{ review.stars }} stars</h4>
+              <p class="indent"><a class="bold" href="user_reviews/{{ review.reviewer.id }}">{{ review.reviewer.name }}</a> says : {{ review.review }}</p>
+              <p class="indent">Posted on: {{ review.created_at }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div id="books">
+        <h2>Other Books with Reviews:</h2>
+        <ul>
+          {% for book in books %}
+            <li><a href="/display/{{ book.id }}">{{ book.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% for message in messages %}
+        <p class="red">{{ message }}</p>
+      {% endfor %}
+    </div>
+    <p>&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</p>
+    {% for review in reviews %}
+      {{ review.stars }}
+    {% endfor %}
+  </body>
+
+</html>

@@ -1,0 +1,68 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  padding: 20px;
+}
+
+#books {
+  margin-left: 40px;
+  vertical-align: top;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 500px;
+}
+
+h2{
+  margin-bottom: 40px;
+}
+
+.review {
+  margin-bottom: 40px;
+}
+
+.link_margin {
+  margin-right: 20px;
+}
+
+#reviews, #books {
+  display: inline-block;
+  width: 650px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.indent {
+  margin-left: 40px;
+}
+
+ul {
+  border: 1pt solid black;
+  list-style: none;
+  height: 300px;
+  overflow-y: scroll;
+  padding: 5px;
+  width: 400px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.red{
+  color: red;
+}
+
+.big {
+  font-size: 2em;
+}
+
+.orange {
+  color: #f8ce0b;
+  font-size: 2em;
+}

@@ -1,0 +1,60 @@
+body {
+  font-family: arial;
+}
+
+#wrapper {
+  padding: 20px;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0 500px 50px 0;
+}
+
+.link_margin {
+  margin-right: 20px;
+}
+
+.no_bold {
+  font-weight: normal;
+}
+
+#reviews {
+  display: inline-block;
+}
+
+#add_review {
+  display: inline-block;
+  padding: 0 50px;
+  vertical-align: top;
+}
+
+.review {
+  border-top: 2pt solid black;
+  margin: 0 40px;
+  width: 600px;
+}
+
+button, textarea {
+  border-radius: 5px;
+  display: block;
+  padding: 5px;
+}
+
+textarea {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button {
+  font-weight: bold;
+  margin: 10px 0 0 325px;
+}

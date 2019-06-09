@@ -1,0 +1,60 @@
+body {
+  font-family: arial;
+  margin: 8px;
+}
+
+#wrapper {
+  padding: 20px;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 500px;
+}
+
+.link_margin {
+  margin-right: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 20px;
+}
+
+label {
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.indent {
+  margin-left: 40px;
+}
+
+.title {
+  width: 500px;
+}
+
+.author {
+  width: 425px;
+}
+
+input, select, textarea {
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+  margin-left: 450px;
+  padding: 5px;
+}
+
+.red {
+  color: red;
+}

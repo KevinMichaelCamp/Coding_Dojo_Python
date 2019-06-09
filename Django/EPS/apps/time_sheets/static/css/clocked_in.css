@@ -1,0 +1,45 @@
+a {
+  display: block;
+}
+
+.alert {
+  display: inline-block;
+  margin: 20px 0 0 40px;
+}
+
+.clock {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+.main {
+  margin-left: 15px;
+}
+
+.points {
+  border-top: 1pt solid darkgrey;
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+select {
+  margin-left: 50px;
+}
+
+.table-responsive {
+  height: 500px;
+  margin-top: 40px;
+  overflow-y: scroll;
+}
+
+.user {
+  background-color: lightgrey;
+  height: 150px;
+  text-align: center;
+}
+
+.window_head{
+  margin: 40px 0 20px 50px;
+}

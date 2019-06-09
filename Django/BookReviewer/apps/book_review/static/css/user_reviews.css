@@ -1,0 +1,30 @@
+body {
+  font-family: arial;
+  margin: 8px;
+}
+
+#wrapper {
+  padding: 20px;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 500px;
+}
+
+.link_margin {
+  margin-right: 20px;
+}
+
+#user_info {
+  margin: 50px 0 50px 20px;
+}
+
+#reviews {
+  margin-left: 20px;
+}
+
+.reviews {
+  display: block;
+  margin: 0 0 10px 20px;
+}

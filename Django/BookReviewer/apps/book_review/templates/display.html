@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/display.css' %}">
+  <title>Book Reviews</title>
+</head>
+
+<body>
+  <div id="header">
+    <h1>{{ book.title }}</h1>
+    <a class="link_margin"href="/home">Home</a>
+    <a class="link_margin" href="/library">Users/Books Lists</a>
+    <a href="/logout">Logout</a>
+    <h2 class="no_bold">Author: {{ book.author.author }}</h2>
+  </div>
+  <div id="reviews">
+    <h2>Reviews:</h2>
+    {% for review in reviews %}
+      <div class="review">
+        <h3>Rating: {{ review.rating }}</h3>
+        <h3>{{ review.reviewer.name }} says: {{ review.review }}</h3>
+        <p>Posted on: {{ review.created_at }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div id="add_review">
+    <h2>Add a review:</h2>
+    <form action="/add_review" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="book_id" value="{{ book.id }}">
+      <textarea name="review" rows="20" cols="60"></textarea>
+      <label>Rating: </label>
+      <input type="number" name="rating" min="0" max="5" placeholder="0">
+      <label>stars</label>
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+</body>
+
+</html>

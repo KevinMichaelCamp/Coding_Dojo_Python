@@ -4,7 +4,8 @@ a {
 
 .alert {
   display: inline-block;
-  margin: 20px 0 0 40px;
+  margin-left: 40px;
+  vertical-align: top;
 }
 
 #formModal button, textarea{
@@ -39,7 +40,13 @@ form {
 }
 
 select {
-  margin-left: 50px;
+  border-radius: 5px;
+  margin:25px 0 0 50px;
+}
+
+.select {
+  height: 90px;
+  vertical-align: middle;
 }
 
 .table-responsive {

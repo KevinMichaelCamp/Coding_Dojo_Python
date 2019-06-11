@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import Decimal
+
 import bcrypt
 import re
 
@@ -16,11 +17,11 @@ class UserManager(models.Manager):
             if bcrypt.checkpw(postData['password'].encode(), user.password):
                 return errors
             else:
-                errors['login'] = "Email/Password incorrect"
+                errors['password'] = "Password incorrect"
                 return errors
 
         else:
-            errors['login'] = "Email/Password incorrect"
+            errors['login'] = "Email not found in database"
             return errors
 
     def validate_reg(self, postData):
@@ -43,8 +44,7 @@ class UserManager(models.Manager):
 
         if len(postData['password']) < 8:
             errors['password'] = "Password must be at least 8 characters"
-
-        if postData['password'] != postData['pw_confirm']:
+        elif postData['password'] != postData['pw_confirm']:
             errors['password'] = "Password does not match password confirmation"
 
         return errors

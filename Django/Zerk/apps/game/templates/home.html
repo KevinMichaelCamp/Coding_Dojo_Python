@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Zerk Home</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron container text-center">
+      <h1>Legend of Zerk</h1>
+      <h2>The Crappy Saga</h2>
+    </div>
+    <div class="row mt-5">
+      <div class="col text-center">
+        <h3>Welcome, {{ user.first_name }} {{ user.last_name }}</h3>
+        <h4>Would you like to start a new character, or use an existing one?</h4>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col text-center">
+        <a href="/new"><button class="btn btn-outline-primary" type="button"><h1>New Character</h1></button></a>
+      </div>
+      <div class="col text-center">
+        <a href="/existing"><button class="btn btn-outline-primary" type="button"><h1>Existing Character</h1></button></a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <title>EPS Login & Registration</title>
+  <title>Welcome to Zerk!!!</title>
   {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,18 +16,18 @@
 <body>
   <div class="container">
     <div class="jumbotron container text-center">
-      <h1>EPS</h1>
-      <h2>Employee Points System</h2>
+      <h1>Zerk</h1>
+      <h2>Login & Registration</h2>
     </div>
     <div class="row">
       <div class="col">
         <h2>Login</h2>
-        <form action="login" method="post">
+        <form class="" action="/login" method="post">
           {% csrf_token %}
-          <label>Email Address:</label>
-          <input type="text" name="email" placeholder="Enter Email Address">
-          <label>Password:</label>
-          <input type="password" name="password" placeholder="Enter Password">
+          <label>Email: </label>
+          <input type="email" name="email" placeholder="Enter email">
+          <label>Password: </label>
+          <input type="password" name="password" placeholder="Enter password">
           <button class="btn btn-outline-primary" type="submit">Login</button>
         </form>
         {% if messages %}
@@ -41,23 +41,22 @@
       </div>
       <div class="col">
         <h2>Registration</h2>
-        <form action="register" method="post">
+        <form class="" action="/register" method="post">
           {% csrf_token %}
-          <label>First Name:</label>
-          <input type="text" name="first_name" placeholder="Enter First Name">
-          <label>Last Name:</label>
-          <input type="text" name="last_name" placeholder="Enter Last Name">
-          <label>Email Address:</label>
-          <input type="text" name="email" placeholder="Enter Email Address">
-          <label>Password:</label>
-          <input type="password" name="password" placeholder="Enter Password">
-          <label>Confirm Password:</label>
-          <input type="password" name="pw_confirm" placeholder="Re-Enter Password">
-          <button class="btn btn-outline-primary" type="submit">Register</button>
+          <label for="">First Name: </label>
+          <input type="text" name="first_name" placeholder="Enter first name">
+          <label for="">Last Name: </label>
+          <input type="text" name="last_name" placeholder="Enter last name">
+          <label>Email: </label>
+          <input type="email" name="email" placeholder="Enter email">
+          <label>Password: </label>
+          <input type="password" name="password" placeholder="Enter password">
+          <label>Confirm Password: </label>
+          <input type="password" name="pw_confirm" placeholder="ReEnter password">
+          <button class="btn btn-outline-primary" type="submit">Login</button>
         </form>
       </div>
     </div>
-
   </div>
 </body>
 

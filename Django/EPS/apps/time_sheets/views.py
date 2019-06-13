@@ -8,9 +8,22 @@ import pytz
 import bcrypt
 from .models import User
 from .models import Shift
+from .models import Quote
 
 def admin_home(request):
-    return render(request, 'admin_home.html')
+    now = datetime.now(timezone('America/Chicago'))
+
+    # Calculate & save company total points
+    calc_points = User.objects.all().aggregate(all_points = Sum('total_points'))
+    company_points = round(calc_points['all_points'], 2)
+
+    context = {
+        'company_points': company_points,
+        'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'admin_home.html', context)
 
 
 def clock_in(request):
@@ -85,6 +98,21 @@ def clock_out(request):
 
     return redirect('/home')
 
+def edit_quote(request):
+    errors = Quote.objects.validate_quote(request.POST)
+    print(errors)
+
+    if len(errors):
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/admin_home')
+
+    else:
+        Quote.objects.create(
+            author = request.POST['author'],
+            quote = request.POST['quote']
+        )
+        return redirect('/admin_home')
 
 def forgot(request):
     now = datetime.now(timezone('America/Chicago'))
@@ -144,6 +172,7 @@ def home(request):
     context = {
         'company_points': company_points,
         'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
         'shifts': Shift.objects.all(),
         'user': user,
         'user_shifts': Shift.objects.filter(employee=user),
@@ -241,3 +270,9 @@ def report(request):
 
 def settings(request):
     return render(request, 'settings.html')
+
+def updates(request):
+    context = {
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'updates.html', context)

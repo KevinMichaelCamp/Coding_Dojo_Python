@@ -54,10 +54,21 @@ class ShiftManager(models.Manager):
         errors = {}
 
         if len(postData['description']) < 2:
-            errors['description'] = "Description must contain at least 2 characters"
+            errors['description'] = "Description must be at least 2 characters"
 
         return errors
 
+class QuoteManager(models.Manager):
+    def validate_quote(self, postData):
+        errors = {}
+
+        if len(postData['author']) < 2:
+            errors['author'] = "Author name must be at least 2 characters"
+
+        if len(postData['quote']) == 0:
+            errors['quote'] = "Quote field cannot be blank"
+
+        return errors
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
@@ -92,3 +103,14 @@ class Shift(models.Model):
         return "<Shift Object: {} {} {} {} {}".format(self.employee, self.clock_in, self.clock_out, self.date, self.points)
 
     objects = ShiftManager()
+
+class Quote(models.Model):
+    author = models.CharField(max_length=255)
+    quote = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return "<Quote object: {} {}".format(self.author, self.quote)
+
+    objects = QuoteManager()

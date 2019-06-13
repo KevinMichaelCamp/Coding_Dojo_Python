@@ -6,6 +6,10 @@ button {
   display: block!important;
 }
 
+.container {
+  padding: 20px; 
+}
+
 input {
   border-radius: 5px;
   margin-bottom: 10px;

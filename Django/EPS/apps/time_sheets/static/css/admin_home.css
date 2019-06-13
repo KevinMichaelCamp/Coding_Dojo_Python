@@ -1,0 +1,83 @@
+a {
+  display: block;
+}
+
+.alert {
+  display: inline-block;
+  margin-left: 40px;
+  vertical-align: top;
+}
+
+button {
+  display: block !important;
+}
+
+.clock {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+input, textarea {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+label {
+  display: block;
+}
+
+.main {
+  margin-left: 15px;
+}
+
+.media-body {
+  color: white;
+}
+
+.modal {
+  text-align: left;
+}
+
+.points {
+  border-top: 1pt solid darkgrey;
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+select {
+  border-radius: 5px;
+  margin:25px 0 0 50px;
+}
+
+.select {
+  height: 90px;
+  vertical-align: middle;
+}
+
+.table-responsive {
+  height: 500px;
+  margin-top: 40px;
+  overflow-y: scroll;
+}
+
+.user {
+  background-color: #CF2A27;
+  height: 150px;
+  text-align: center;
+}
+
+.white{
+  color: white;
+  font-weight: bold;
+}
+
+.window_head{
+  margin: 40px 0 20px 50px;
+}

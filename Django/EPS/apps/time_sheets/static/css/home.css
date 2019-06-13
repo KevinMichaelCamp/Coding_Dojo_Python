@@ -8,6 +8,10 @@ a {
   vertical-align: top;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 #formModal button, textarea{
   display: block;
   margin-top: 20px;

@@ -75,13 +75,15 @@
                 <img src="{% static '/img/user_unisex.png' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
                   <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-                  <a href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
+                  {% if user.user_level == 9 %}
+                    <a class="bold" href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
+                  {% endif %}
                 </div>
               </div>
             </div>
           </div>
           <div class="row clock">
-            <h5>{{ date_time}}</h5>
+            <h5>{{ date_time }}</h5>
             <a href="/clock_in"><button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
             <button class="btn btn-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
             <div class="modal" id="myModal">
@@ -155,8 +157,8 @@
             <h4 class="text-primary">All User Points</h4>
             <h2 class="display-4 text-primary">{{ company_points }}</h2>
             <blockquote class="blockquote" cite="Dr. Seuss">
-              <p class="small">"You have brains in your head. You have feet in your shoes. You can steer yourself, any direction you choose."</p>
-              <footer class="blockquote-footer">Dr. Seuss</footer>
+              <p class="small">"{{ quote.quote }}"</p>
+              <footer class="blockquote-footer">{{ quote.author }}</footer>
             </blockquote>
           </div>
         </div>

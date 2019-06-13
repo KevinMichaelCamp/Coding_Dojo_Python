@@ -265,11 +265,39 @@ def register(request):
 
 
 def report(request):
-    return render(request, 'report.html')
+    now = datetime.now(timezone('America/Chicago'))
 
+    # Calculate & save company total points
+    calc_points = User.objects.all().aggregate(all_points = Sum('total_points'))
+    company_points = round(calc_points['all_points'], 2)
+
+    context = {
+        'company_points': company_points,
+        'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
+        'user': User.objects.get(id=request.session['id'])
+    }
+
+    return render(request, 'report.html', context)
+
+def reset_password(request):
+    pass
 
 def settings(request):
-    return render(request, 'settings.html')
+    now = datetime.now(timezone('America/Chicago'))
+
+    # Calculate & save company total points
+    calc_points = User.objects.all().aggregate(all_points = Sum('total_points'))
+    company_points = round(calc_points['all_points'], 2)
+
+    context = {
+        'company_points': company_points,
+        'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
+        'user': User.objects.get(id=request.session['id'])
+    }
+
+    return render(request, 'settings.html', context)
 
 def updates(request):
     context = {

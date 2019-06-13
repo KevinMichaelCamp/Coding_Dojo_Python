@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^points$', views.points, name='points'),
     url(r'^register$', views.register, name='register'),
     url(r'^report$', views.report, name='report'),
+    url(r'^reset_password$', views.reset_password, name='reset_password'),
     url(r'^settings$', views.settings, name='settings'),
     url(r'^updates$', views.updates, name='updates'),
 ]

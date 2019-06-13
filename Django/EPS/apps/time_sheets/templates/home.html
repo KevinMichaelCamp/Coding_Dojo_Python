@@ -86,44 +86,44 @@
             <h5>{{ date_time }}</h5>
             <a href="/clock_in"><button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
             <button class="btn btn-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
-            <div class="modal" id="myModal">
-              <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">Forgot to Clockout?</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <table class="table table-hover">
-                      <thead class="thead-light">
+          </div>
+          <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Forgot to Clockout?</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-hover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>ShiftID</th>
+                        <th>Date</th>
+                        <th>Clock In</th>
+                        <th>Clock Out</th>
+                        <th>Hours</th>
+                        <th>Points</th>
+                        <th>Task Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for shift in user_shifts %}
                         <tr>
-                          <th>ShiftID</th>
-                          <th>Date</th>
-                          <th>Clock In</th>
-                          <th>Clock Out</th>
-                          <th>Hours</th>
-                          <th>Points</th>
-                          <th>Task Description</th>
+                          <td><a href="#" data-toggle="modal" data-target="#formModal"  class="formModal" data-id="{{ shift.id }}">{{ shift.id }}</a></td>
+                          <td>{{ shift.date }}</td>
+                          <td>{{ shift.time_in }}</td>
+                          <td>{{ shift.time_out }}</td>
+                          <td>{{ shift.hours }} hrs</td>
+                          <td>{{ shift.points }}</td>
+                          <td>{{ shift.description }}</td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {% for shift in user_shifts %}
-                          <tr>
-                            <td><a href="#" data-toggle="modal" data-target="#formModal"  class="formModal" data-id="{{ shift.id }}">{{ shift.id }}</a></td>
-                            <td>{{ shift.date }}</td>
-                            <td>{{ shift.time_in }}</td>
-                            <td>{{ shift.time_out }}</td>
-                            <td>{{ shift.hours }} hrs</td>
-                            <td>{{ shift.points }}</td>
-                            <td>{{ shift.description }}</td>
-                          </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  </div>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

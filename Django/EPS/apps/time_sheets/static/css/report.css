@@ -1,0 +1,37 @@
+.alert {
+  display: inline-block;
+  margin-left: 40px;
+  vertical-align: top;
+}
+
+.bold {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.clock {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+.main {
+  margin-left: 15px;
+}
+
+.points {
+  border-top: 1pt solid darkgrey;
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+.user {
+  background-color: lightgrey;
+  height: 150px;
+  text-align: center;
+}
+
+.window_head{
+  margin: 40px 0 40px 50px;
+}

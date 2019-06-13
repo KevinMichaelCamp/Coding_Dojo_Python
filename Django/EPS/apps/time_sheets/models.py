@@ -58,8 +58,25 @@ class ShiftManager(models.Manager):
 
         return errors
 
+class EmailManager(models.Manager):
+    def validate(self, postData):
+        errors = {}
+
+        if len(postData['recipients']) == 0:
+            errors['recipients'] = "Task recipients field cannot be blank"
+
+        if len(postData['description']) == 0:
+            errors['desciption'] = "Task decription field cannot be blank"
+
+        if len(postData['challenges']) == 0:
+            errors['challenges'] = "Challenges field cannot be blank"
+
+        if len(postData['help']) == 0:
+            errors['help'] = "Help field cannot be blank"
+
+
 class QuoteManager(models.Manager):
-    def validate_quote(self, postData):
+    def validate(self, postData):
         errors = {}
 
         if len(postData['author']) < 2:
@@ -103,6 +120,20 @@ class Shift(models.Model):
         return "<Shift Object: {} {} {} {} {}".format(self.employee, self.clock_in, self.clock_out, self.date, self.points)
 
     objects = ShiftManager()
+
+class Email(models.Model):
+    description = models.TextField()
+    challenges = models.TextField()
+    help = models.TextField()
+    recipients = models.TextField()
+    sender = models.ForeignKey(User, related_name='emails', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return "<Email Object: {} {} {} {} {}".format(self.description, self.challenges, self.help, self.recipients, self.sender)
+
+    objects = EmailManager()
 
 class Quote(models.Model):
     author = models.CharField(max_length=255)

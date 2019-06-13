@@ -1,6 +1,10 @@
+a {
+  display: block;
+}
+
 .alert {
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 20px;
   vertical-align: top;
 }
 
@@ -9,10 +13,23 @@
   font-weight: bold;
 }
 
+button {
+  margin-left: 445px;
+}
+
 .clock {
   display: block;
   padding: 20px;
   text-align: center;
+}
+
+form {
+  margin-left: 50px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
 }
 
 .main {
@@ -24,6 +41,11 @@
   display: block;
   padding: 20px;
   text-align: center;
+}
+
+textarea {
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .user {

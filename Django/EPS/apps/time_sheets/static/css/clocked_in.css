@@ -8,10 +8,24 @@ a {
   vertical-align: top;
 }
 
+.bold {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+button {
+  display: block !important;
+  margin: 20px auto !important;
+}
+
 .clock {
   display: block;
   padding: 20px;
   text-align: center;
+}
+
+.clock_out {
+  display: block;
 }
 
 form {
@@ -41,7 +55,7 @@ select {
 
 .table-responsive {
   height: 500px;
-  margin-top: 40px;
+  margin: 40px 0 0 35px;
   overflow-y: scroll;
 }
 

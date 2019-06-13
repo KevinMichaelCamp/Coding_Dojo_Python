@@ -69,16 +69,16 @@
                 <img src="{% static '/img/user_unisex.png' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
                   <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-                  <a href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
+                  <a class="bold" href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="row clock">
             <h5>{{ date_time}}</h5>
-            <form action="/clock_out" method="post">
+            <form class="clock_out" action="/clock_out" method="post">
               {% csrf_token %}
-              <button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock Out</button>
+              <button class="btn btn-outline-primary font-weight-bold" type="submit">Clock Out</button>
               <textarea name="description" rows="6" cols="40" placeholder="Task Description (e.g. Completed wireframe for EPS user side)"></textarea>
             </form>
           </div>

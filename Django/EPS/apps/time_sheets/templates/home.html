@@ -84,8 +84,8 @@
           </div>
           <div class="row clock">
             <h5>{{ date_time }}</h5>
-            <a href="/clock_in"><button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
-            <button class="btn btn-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
+            <a href="/clock_in"><button class="btn btn-outline-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
+            <button class="btn btn-outline-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
           </div>
           <div class="modal" id="myModal">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -123,7 +123,7 @@
                   </table>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-danger font-weight-bold" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -142,11 +142,11 @@
                     <label>Clock Out Time: </label>
                     <input type="datetime-local" name="clock_out">
                     <textarea name="description" rows="6" cols="40" placeholder="Task Description (e.g. Completed wireframe for EPS user side)"></textarea>
-                    <button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock Out</button>
+                    <button class="btn btn-outline-primary m-2 font-weight-bold" type="submit">Clock Out</button>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-danger font-weight-bold" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
@@ -166,6 +166,7 @@
           <h3 class="window_head">Clock Records</h3>
           <form class="select" action="index.html" method="post">
             {% csrf_token %}
+            <!-- MAKE THIS SECTION FUNCTIONABLE -->
             <select class="time_period" name="time_period">
               <option value="this_week">This Week</option>
               <option value="last_week">Last Week</option>

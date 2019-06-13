@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^clocked_in$', views.clocked_in, name='clocked_in'),
     url(r'^clock_out$', views.clock_out, name='clock_out'),
     url(r'^edit_quote$', views.edit_quote, name='edit_quote'),
+    url(r'^email$', views.email, name='email'),
     url(r'^forgot$', views.forgot, name='forgot'),
     url(r'^home$', views.home, name='home'),
     url(r'^login$', views.login, name='login'),

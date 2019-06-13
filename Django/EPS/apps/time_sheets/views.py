@@ -9,6 +9,7 @@ import bcrypt
 from .models import User
 from .models import Shift
 from .models import Quote
+from .models import Email
 
 def admin_home(request):
     now = datetime.now(timezone('America/Chicago'))
@@ -99,7 +100,7 @@ def clock_out(request):
     return redirect('/home')
 
 def edit_quote(request):
-    errors = Quote.objects.validate_quote(request.POST)
+    errors = Quote.objects.validate(request.POST)
     print(errors)
 
     if len(errors):
@@ -113,6 +114,25 @@ def edit_quote(request):
             quote = request.POST['quote']
         )
         return redirect('/admin_home')
+
+def email(request):
+    errors = Email.objects.validate(request.POST)
+
+    if len(errors):
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/report')
+
+    else:
+        Email.objects.create(
+            description = request.POST['description'],
+            challenges = request.POST['challenges'],
+            help = request.POST['help'],
+            recipients = request.POST['recipients'],
+            sender = User.objects.get(id=request.session['id'])
+        )
+        messages.success(request, "Daily reports created")
+        return redirect('/report')
 
 def forgot(request):
     now = datetime.now(timezone('America/Chicago'))

@@ -7,14 +7,28 @@ a {
   margin: 20px 0 0 40px;
 }
 
+.bold {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .clock {
   display: block;
   padding: 20px;
   text-align: center;
 }
 
+#formModal button, textarea{
+  display: block;
+  margin-top: 20px;
+}
+
 .main {
   margin-left: 15px;
+}
+
+#myModal{
+  height: 750px;
 }
 
 .points {
@@ -30,7 +44,7 @@ select {
 
 .table-responsive {
   height: 500px;
-  margin-top: 40px;
+  margin: 40px 0 0 35px;
   overflow-y: scroll;
 }
 

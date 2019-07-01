@@ -9,6 +9,7 @@ EMAIL_REGEX = re.compile(r'[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 # Create your models here.
 class UserManager(models.Manager):
+    # Validate Login
     def validate_login(self, postData):
         errors = {}
 
@@ -24,6 +25,7 @@ class UserManager(models.Manager):
             errors['login'] = "Email not found in database"
             return errors
 
+    # Validate Registration
     def validate_reg(self, postData):
         errors = {}
 
@@ -49,6 +51,56 @@ class UserManager(models.Manager):
 
         return errors
 
+    # Settings - Validate Password Change
+    def validate_change(self, postData):
+        errors = {}
+
+        user = User.objects.get(id=postData['user_id'])
+
+        if len(postData['password']) < 8:
+            errors['password'] = "Password must be at least 8 characters"
+        elif postData['password'] != postData['pw_confirm']:
+            errors['password'] = "Password does not match password confirmation"
+
+        if bcrypt.checkpw(postData['pw_check'].encode(), user.password):
+            return errors
+        else:
+            errors['password'] = "Password incorrect"
+            return errors
+
+        return errors
+
+    # Admin - Validate User Edit
+    def validate_edit(self, postData):
+        errors = {}
+
+        if len(postData['first_name']) < 2:
+            errors['first_name'] = "First name must be at least 2 characters"
+        elif not NAME_REGEX.match(postData['first_name']):
+            errors['first_name'] = "First name must contain letters only"
+
+        if len(postData['last_name']) < 2:
+            errors['last_name'] = "Last name must be at least 2 characters"
+        elif not NAME_REGEX.match(postData['last_name']):
+            errors['last_name'] = "Last name must contain letters only"
+
+        if not EMAIL_REGEX.match(postData['email']):
+            errors['email'] = "Invalid email format"
+        elif len(User.objects.filter(email = postData['email'])):
+            errors['email'] = "Email already exists in database"
+
+        return errors
+
+    # Admin - Validate Update Points
+    def validate_points(self, postData):
+        errors = {}
+
+        if float(postData['points_rate']) < 1 or float(postData['points_rate']) >= 50:
+            errors['points_rate'] = "Points rate must be inbetween 1 and 50"
+
+        return errors
+
+
 class ShiftManager(models.Manager):
     def validate(self, postData):
         errors = {}
@@ -57,6 +109,7 @@ class ShiftManager(models.Manager):
             errors['description'] = "Description must be at least 2 characters"
 
         return errors
+
 
 class EmailManager(models.Manager):
     def validate(self, postData):
@@ -74,6 +127,8 @@ class EmailManager(models.Manager):
         if len(postData['help']) == 0:
             errors['help'] = "Help field cannot be blank"
 
+        return errors
+
 
 class QuoteManager(models.Manager):
     def validate(self, postData):
@@ -86,6 +141,7 @@ class QuoteManager(models.Manager):
             errors['quote'] = "Quote field cannot be blank"
 
         return errors
+
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
@@ -102,6 +158,7 @@ class User(models.Model):
         return "<User Object: {} {} {} {}".format(self.first_name, self.last_name, self.email, self.user_level)
 
     objects = UserManager()
+
 
 class Shift(models.Model):
     clock_in = models.DateTimeField()
@@ -121,6 +178,7 @@ class Shift(models.Model):
 
     objects = ShiftManager()
 
+
 class Email(models.Model):
     description = models.TextField()
     challenges = models.TextField()
@@ -134,6 +192,7 @@ class Email(models.Model):
         return "<Email Object: {} {} {} {} {}".format(self.description, self.challenges, self.help, self.recipients, self.sender)
 
     objects = EmailManager()
+
 
 class Quote(models.Model):
     author = models.CharField(max_length=255)

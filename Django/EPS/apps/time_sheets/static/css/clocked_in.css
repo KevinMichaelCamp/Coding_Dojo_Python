@@ -4,7 +4,7 @@ a {
 
 .alert {
   display: inline-block;
-  margin-left: 40px;
+  margin: 20px 0 0 40px;
   vertical-align: top;
 }
 
@@ -59,6 +59,11 @@ select {
   overflow-y: scroll;
 }
 
+.table-responsive th {
+  position: sticky;
+  top: 0;
+}
+
 .user {
   background-color: lightgrey;
   height: 150px;
@@ -66,5 +71,6 @@ select {
 }
 
 .window_head{
-  margin: 40px 0 20px 50px;
+  display: inline-block;
+  margin: 40px 0 40px 50px;
 }

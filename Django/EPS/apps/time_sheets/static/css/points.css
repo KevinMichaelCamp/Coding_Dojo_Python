@@ -5,6 +5,7 @@ a {
 .alert {
   display: inline-block;
   margin: 20px 0 0 40px;
+  vertical-align: top;
 }
 
 .bold {
@@ -43,9 +44,14 @@ select {
 }
 
 .table-responsive {
-  height: 500px;
+  height: 250px;
   margin: 40px 0 0 35px;
   overflow-y: scroll;
+}
+
+.table-responsive th {
+  position: sticky;
+  top: 0;
 }
 
 .user {

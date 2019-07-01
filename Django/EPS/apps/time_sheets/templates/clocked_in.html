@@ -69,7 +69,9 @@
                 <img src="{% static '/img/user_unisex.png' %}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
                   <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-                  <a class="bold" href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
+                  {% if user.user_level == 9 %}
+                    <a class="bold" href="/admin_home"><img class="mr-3" src="{% static '/img/admin_view_eye.png' %}" alt="Admin View" style="width:60px">Admin View</a>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -91,22 +93,12 @@
         </div>
         <div class="col-sm-9 window" >
           <h3 class="window_head">Clock Records</h3>
-          <form class="select" action="index.html" method="post">
-            {% csrf_token %}
-            <select class="time_period" name="time_period">
-              <option value="this_week">This Week</option>
-              <option value="last_week">Last Week</option>
-              <option value="this_month">This Month</option>
-              <option value="last_month">Last Month</option>
-              <option value="custom">Custom Date Range</option>
-            </select>
-            <select id="mySelector" class="user_name" name="user_name">
-              <option value="">Filter by User</option>
-              {% for user in users %}
-              <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
-              {% endfor %}
-            </select>
-          </form>
+          <select id="mySelector" class="user_name" name="user_name">
+            <option value="">Filter by User</option>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+            {% endfor %}
+          </select>
           {% if messages %}
           <div class="alert alert-danger">
             <strong>ALERT!</strong>
@@ -120,6 +112,7 @@
               <thead class="thead-light">
                 <tr>
                   <th>UserID</th>
+                  <th>User Name</th>
                   <th>Date</th>
                   <th>Clock In</th>
                   <th>Clock Out</th>
@@ -132,6 +125,7 @@
                 {% for shift in shifts %}
                 <tr>
                   <td>{{ shift.employee.id }}</td>
+                  <td>{{ shift.employee.first_name }} {{ shift.employee.last_name }}</td>
                   <td>{{ shift.date }}</td>
                   <td>{{ shift.time_in }}</td>
                   <td>{{ shift.time_out }}</td>

@@ -65,7 +65,7 @@
             <a href="/clock_in"><button class="btn btn-outline-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
             <button class="btn btn-outline-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
           </div>
-          <div class="modal" id="myModal">
+          <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
@@ -106,7 +106,7 @@
               </div>
             </div>
           </div>
-          <div class="modal" id="formModal">
+          <div class="modal fade" id="formModal">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
@@ -149,7 +149,7 @@
               <p>{{ message }}</p>
             {% endfor %}
           </div>
-          {% endif %
+          {% endif %}
           <form action="email" method="post">
             {% csrf_token %}
             <div class="form-group">

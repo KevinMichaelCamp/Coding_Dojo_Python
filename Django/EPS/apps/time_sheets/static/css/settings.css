@@ -1,6 +1,10 @@
+a {
+  display: block;
+}
+
 .alert {
   display: inline-block;
-  margin-left: 40px;
+  margin: 20px 0 0 20px;
   vertical-align: top;
 }
 
@@ -10,7 +14,7 @@
 }
 
 button {
-  margin: 20px 0 0 468px;
+  margin: 20px 0 0 460px;
 }
 
 .clock {
@@ -51,5 +55,6 @@ td {
 }
 
 .window_head{
+  display: inline-block;
   margin: 40px 0 40px 50px;
 }

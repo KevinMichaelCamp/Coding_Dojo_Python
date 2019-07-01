@@ -8,9 +8,8 @@ a {
   vertical-align: top;
 }
 
-.bold {
-  font-size: 1.2em;
-  font-weight: bold;
+button {
+  display: block !important;
 }
 
 .clock {
@@ -19,23 +18,32 @@ a {
   text-align: center;
 }
 
-form {
-  display: inline-block;
+h5 {
+  margin-bottom: 20px;
 }
 
-#formModal button, textarea {
+input, textarea {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+label {
   display: block;
-  margin-top: 20px;
+  margin-right: 20px;
 }
 
 .main {
   margin-left: 15px;
 }
 
-#myModal{
-  height: 750px;
+.media-body {
+  color: white;
 }
 
+.modal {
+  text-align: left;
+}
 
 .points {
   border-top: 1pt solid darkgrey;
@@ -44,34 +52,34 @@ form {
   text-align: center;
 }
 
-select {
-  border-radius: 5px;
-  margin:25px 0 0 50px;
-}
-
-.select {
-  height: 90px;
-  vertical-align: middle;
-}
-
 .table-responsive {
   height: 500px;
   margin: 40px 0 0 35px;
   overflow-y: scroll;
 }
 
-.table-responsive th{
+.table-responsive th {
   position: sticky;
   top: 0;
 }
 
 .user {
-  background-color: lightgrey;
+  background-color: #CF2A27;
   height: 150px;
   text-align: center;
 }
 
+.user_name {
+  margin:25px 0 0 50px;
+}
+
+.white{
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .window_head{
   display: inline-block;
-  margin: 40px 0 40px 50px;
+  margin: 40px 0 80px 50px;
 }

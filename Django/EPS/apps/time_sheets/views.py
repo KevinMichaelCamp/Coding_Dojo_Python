@@ -22,8 +22,10 @@ def admin_home(request):
         'company_points': company_points,
         'date_time': now.strftime('%I:%M %p | %d %B %Y'),
         'quote': Quote.objects.last(),
-        'user': User.objects.get(id=request.session['id'])
+        'user': User.objects.get(id=request.session['id']),
+        'users': User.objects.all()
     }
+
     return render(request, 'admin_home.html', context)
 
 
@@ -44,7 +46,6 @@ def clocked_in(request):
 
     user = User.objects.get(id=request.session['id'])
     user_shifts = Shift.objects.filter(employee = user)
-    print(user_shifts)
 
     # Calculate & save user total points
     if user_shifts[0].clock_out != None:
@@ -86,7 +87,6 @@ def clock_out(request):
         hours = Decimal(total_seconds/3600)
         points = hours * user.points_rate
 
-        print("total_seconds" + str(total_seconds), 'hours' + str(hours), "points" + str(points))
         shift.clock_out = datetime.now(timezone('America/Chicago'))
         shift.time_out = datetime.now(timezone('America/Chicago'))
         shift.hours = hours
@@ -101,7 +101,6 @@ def clock_out(request):
 
 def edit_quote(request):
     errors = Quote.objects.validate(request.POST)
-    print(errors)
 
     if len(errors):
         for key, value in errors.items():
@@ -114,6 +113,26 @@ def edit_quote(request):
             quote = request.POST['quote']
         )
         return redirect('/admin_home')
+
+
+def edit_user(request):
+    errors = User.objects.validate_edit(request.POST)
+
+    if len(errors):
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/admin_home')
+
+    else:
+        edit_user = User.objects.get(id = request.POST['user_id'])
+        edit_user.first_name = request.POST['first_name']
+        edit_user.last_name = request.POST['last_name']
+        edit_user.email = request.POST['email']
+        edit_user.user_level = request.POST['user_level']
+        edit_user.save()
+        messages.success(request, "User Info Edited")
+        return redirect('/admin_home')
+
 
 def email(request):
     errors = Email.objects.validate(request.POST)
@@ -132,7 +151,7 @@ def email(request):
             sender = User.objects.get(id=request.session['id'])
         )
         messages.success(request, "Daily reports created")
-        return redirect('/report')
+        return redirect('/home')
 
 def forgot(request):
     now = datetime.now(timezone('America/Chicago'))
@@ -143,18 +162,12 @@ def forgot(request):
     naive = datetime.strptime(request.POST['clock_out']+':00', "%Y-%m-%dT%H:%M:%S")
     aware = pytz.utc.localize(naive)
 
-    print(naive)
-    print(aware)
-    print(request.POST['clock_out'])
-    print(clock_out)
-    print(shift.clock_in)
     # Calculate work hours & points (use rate!!!)
     timeDiff = aware - shift.clock_in
     total_seconds = int(timeDiff.total_seconds())
     hours = round(Decimal(total_seconds/3600) + 5, 1)
     points = hours * user.points_rate
 
-    print("total_seconds" + str(total_seconds), 'hours' + str(hours), "points" + str(points))
     shift.clock_out = aware
     shift.time_out = aware
     shift.hours = hours
@@ -165,14 +178,11 @@ def forgot(request):
     user.total_points += points
     user.save()
 
-
-    print(request.POST)
     return redirect('/home')
 
 
 def home(request):
     now = datetime.now(timezone('America/Chicago'))
-    print(now)
 
     user = User.objects.get(id=request.session['id'])
     user_shifts = Shift.objects.filter(employee = user)
@@ -245,6 +255,7 @@ def points(request):
     context = {
         'company_points': company_points,
         'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
         'shifts': Shift.objects.all(),
         'user': User.objects.get(id=request.session['id']),
         'user_shifts': Shift.objects.filter(employee=user),
@@ -286,6 +297,7 @@ def register(request):
 
 def report(request):
     now = datetime.now(timezone('America/Chicago'))
+    user = User.objects.get(id=request.session['id'])
 
     # Calculate & save company total points
     calc_points = User.objects.all().aggregate(all_points = Sum('total_points'))
@@ -295,13 +307,28 @@ def report(request):
         'company_points': company_points,
         'date_time': now.strftime('%I:%M %p | %d %B %Y'),
         'quote': Quote.objects.last(),
-        'user': User.objects.get(id=request.session['id'])
+        'user': user,
+        'user_shifts': Shift.objects.filter(employee=user),
     }
 
     return render(request, 'report.html', context)
 
+
 def reset_password(request):
-    pass
+    errors = User.objects.validate_change(request.POST)
+
+    if len(errors):
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/settings')
+
+    else:
+        user = User.objects.get(id=request.session['id'])
+        user.password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
+        user.save()
+        messages.success(request, "Password changed")
+        return redirect('/home')
+
 
 def settings(request):
     now = datetime.now(timezone('America/Chicago'))
@@ -319,8 +346,36 @@ def settings(request):
 
     return render(request, 'settings.html', context)
 
+
+def update_points(request):
+    errors = User.objects.validate_points(request.POST)
+
+    if len(errors):
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/admin_home')
+
+    else:
+        user_point_edit = User.objects.get(id = request.POST['user_id'])
+        user_point_edit.points_rate = request.POST['points_rate']
+        user_point_edit.save()
+        messages.success(request, "Points Updated")
+        return redirect('/admin_home')
+
+
 def updates(request):
+    now = datetime.now(timezone('America/Chicago'))
+
+    # Calculate & save company total points
+    calc_points = User.objects.all().aggregate(all_points = Sum('total_points'))
+    company_points = round(calc_points['all_points'], 2)
+
     context = {
+        'company_points': company_points,
+        'date_time': now.strftime('%I:%M %p | %d %B %Y'),
+        'quote': Quote.objects.last(),
+        'reports': Email.objects.all(),
         'user': User.objects.get(id=request.session['id'])
     }
+
     return render(request, 'updates.html', context)

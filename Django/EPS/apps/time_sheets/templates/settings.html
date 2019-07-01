@@ -62,8 +62,8 @@
           </div>
           <div class="row clock">
             <h5>{{ date_time }}</h5>
-            <a href="/clock_in"><button class="btn btn-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
-            <button class="btn btn-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
+            <a href="/clock_in"><button class="btn btn-outline-primary m-2 font-weight-bold" type="submit">Clock In</button></a>
+            <button class="btn btn-outline-primary m-2 font-weight-bold" type="button" data-toggle="modal" data-target="#myModal">Forgot to Clock Out Yesterday?</button>
           </div>
           <div class="modal" id="myModal">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -142,8 +142,17 @@
         </div>
         <div class="col-sm-9 window" >
           <h3 class="window_head">Reset Password</h3>
+          {% if messages %}
+          <div class="alert alert-danger">
+            <strong>ALERT!</strong>
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
           <form action="reset_password" method="post">
             {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
             <table>
               <tr>
                 <td><label>Previous Password:</label></td>
@@ -158,7 +167,7 @@
                 <td><input type="password" name="pw_confirm" placeholder="ReEnter new password"></td>
               </tr>
             </table>
-            <button class="btn btn-danger" type="submit">Reset Password</button>
+            <button class="btn btn-outline-danger font-weight-bold" type="submit">Reset Password</button>
           </form>
         </div>
       </div>

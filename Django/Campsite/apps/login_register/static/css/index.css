@@ -1,59 +1,55 @@
-body{
+body {
   font-family: arial;
 }
 
 button {
+  background-color: darkblue;
   border-radius: 5px;
-  display: block;
+  color: white;
   font-size: 1.1em;
   font-weight: bold;
-  margin: 50px 0 0 200px;
+  margin-left: 200px;
+  padding: 5px;
 }
 
 .container {
   text-align: center;
 }
 
-#errors {
+.errors {
   color: red;
 }
 
 fieldset {
-  border: 2pt solid black;
   border-radius: 5px;
   display: inline-block;
-  margin: 50px 75px;
-  padding: 20px;
-  text-align: left;
-  vertical-align: top;
 }
 
 form {
   display: inline-block;
+  margin: 50px 50px 0 50px;
+  text-align: left;
   vertical-align: top;
 }
 
 input {
   border-radius: 5px;
-  margin-bottom: 10px;
+  display: block;
+  margin: 10px 0 20px 0;
   padding: 5px;
   width: 250px;
 }
 
 label {
-  display: block;
-  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 legend {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .login_errors {
   display: inline-block;
-}
-
-#wrapper{
-  padding: 20px;
 }

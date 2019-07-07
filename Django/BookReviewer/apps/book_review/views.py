@@ -78,25 +78,9 @@ def add(request):
             author = author,
         )
 
-        # Create Stars
-        stars = ""
-        if request.POST['rating'] == 0:
-            stars = "&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;"
-        elif request.POST['rating'] == 1:
-            stars = "&#x2605;&#x2606;&#x2606;&#x2606;&#x2606;"
-        elif request.POST['rating'] == 2:
-            stars = "&#x2605;&#x2605;&#x2606;&#x2606;&#x2606;"
-        elif request.POST['rating'] == 3:
-            stars = "&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;"
-        elif request.POST['rating'] == 4:
-            stars = "&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;"
-        else:
-            stars = "&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;"
-
         Review.objects.create(
             review = request.POST['review'],
             rating = request.POST['rating'],
-            stars = stars,
             book = book,
             reviewer = User.objects.get(id = request.session['id'])
         )

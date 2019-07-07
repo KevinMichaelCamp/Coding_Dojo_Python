@@ -58,3 +58,11 @@ button {
   font-weight: bold;
   margin: 10px 0 0 325px;
 }
+
+.orange {
+  color: #f8ce0b;
+}
+
+.stars {
+  font-size: 2em;
+}

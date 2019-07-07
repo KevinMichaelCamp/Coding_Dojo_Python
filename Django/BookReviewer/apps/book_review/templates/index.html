@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+
 <head>
   <meta charset="utf-8">
   {% load static %}
@@ -8,48 +9,58 @@
   <title>Welcome to Book Reviewer!</title>
 </head>
 
+
 <body>
   <div id="wrapper">
+
     <div id="header">
-      <h1>Welcome!</h1>
+      <h1>Welcome to Book Reviewer!</h1>
     </div>
-    <div class="login_reg">
-      <h2>Register</h2>
+
+    <div class="container">
+      <div class="login_errors">
+        <form action="login" method="post">
+          <fieldset>
+            <legend>Login</legend>
+            {% csrf_token %}
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="Enter Email">
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter Password">
+            <button type="submit">Login</button>
+          </fieldset>
+        </form>
+        <div id="errors">
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      
       <form action="register" method="post">
-        {% csrf_token %}
-        <label>Name:</label>
-        <input type="text" name="name" placeholder="Enter Name">
-        <label>Alias:</label>
-        <input type="text" name="alias" placeholder="Enter Alias">
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="Enter Email">
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter Password">
-        <p>* Password should be at least 8 characters</p>
-        <label>Password Confirmation:</label>
-        <input type="password" name="pw_confirm" placeholder="Confirm Password">
-        <button type="submit">Register</button>
+        <fieldset>
+          <legend>Register</legend>
+          {% csrf_token %}
+          <label>Name:</label>
+          <input type="text" name="name" placeholder="Enter Name">
+          <label>Alias:</label>
+          <input type="text" name="alias" placeholder="Enter Alias">
+          <label>Email:</label>
+          <input type="email" name="email" placeholder="Enter Email">
+          <label>Password:</label>
+          <input type="password" name="password" placeholder="Enter Password">
+          <p>* Password should be at least 8 characters</p>
+          <label>Password Confirmation:</label>
+          <input type="password" name="pw_confirm" placeholder="Confirm Password">
+          <button type="submit">Register</button>
+        </fieldset>
       </form>
     </div>
-    <div class="login_reg">
-      <h2>Login</h2>
-      <form action="login" method="post">
-        {% csrf_token %}
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="Enter Email">
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter Password">
-        <button type="submit">Login</button>
-      </form>
-    </div>
-    <div id="errors">
-      {% if messages %}
-      {% for message in messages %}
-      <p>{{ message }}</p>
-      {% endfor %}
-      {% endif %}
-    </div>
+
   </div>
 </body>
+
 
 </html>

@@ -2,8 +2,12 @@ body {
   font-family: arial;
 }
 
-#wrapper {
-  padding: 20px;
+.big {
+  font-size: 2em;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 #books {
@@ -16,16 +20,32 @@ h1 {
   margin-right: 500px;
 }
 
-h2{
+h2 {
   margin-bottom: 40px;
 }
 
-.review {
-  margin-bottom: 40px;
+.indent {
+  margin-left: 40px;
+}
+
+li {
+  margin: 10px 0;
 }
 
 .link_margin {
   margin-right: 20px;
+}
+
+.orange {
+  color: #f8ce0b;
+}
+
+.red {
+  color: red;
+}
+
+.review {
+  margin-bottom: 40px;
 }
 
 #reviews, #books {
@@ -33,12 +53,8 @@ h2{
   width: 650px;
 }
 
-.bold {
-  font-weight: bold;
-}
-
-.indent {
-  margin-left: 40px;
+.stars {
+  font-size: 2em;
 }
 
 ul {
@@ -50,19 +66,6 @@ ul {
   width: 400px;
 }
 
-li {
-  margin: 10px 0;
-}
-
-.red{
-  color: red;
-}
-
-.big {
-  font-size: 2em;
-}
-
-.orange {
-  color: #f8ce0b;
-  font-size: 2em;
+#wrapper {
+  padding: 20px;
 }

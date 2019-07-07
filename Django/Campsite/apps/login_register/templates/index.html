@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <title>Login & Registration</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="login_errors">
+      <form action="login" method="post">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Login</legend>
+          <label>Email:</label>
+          <input type="email" name="email">
+          <label>Password:</label>
+          <input type="password" name="password">
+          <button type="submit">Login</button>
+        </fieldset>
+      </form>
+      <div class="errors">
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    <form action="register" method="post">
+      {% csrf_token %}
+      <fieldset>
+        <legend>Register</legend>
+        <label>First Name:</label>
+        <input type="text" name="first_name">
+        <label>Last Name:</label>
+        <input type="text" name="last_name">
+        <label>Email:</label>
+        <input type="email" name="email">
+        <label>Password:</label>
+        <input type="password" name="password">
+        <label>Password Confirmation:</label>
+        <input type="password" name="pw_confirm">
+        <button type="submit">Register</button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>

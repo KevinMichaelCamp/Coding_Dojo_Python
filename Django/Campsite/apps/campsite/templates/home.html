@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <title>Welcome Home!</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+
+<body>
+  <div class="header">
+    <h1>Welcome, {{ user.first_name }} {{ user.last_name }}</h1>
+    <h5>click...</h5>
+  </div>
+
+  <div id="homeModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      {% if user.user_level == 9 %}
+        <a href="admin_func"><button type="button">Admin</button></a>
+      {% endif %}
+      <a href="weather"><button type="button">Weather</button></a>
+    </div>
+  </div>
+
+  <script>
+    var modal = document.getElementById("homeModal");
+    // var btn = document.getElementById("modalBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    document.onclick = function() {
+      modal.style.display = 'block';
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

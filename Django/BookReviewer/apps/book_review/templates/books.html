@@ -22,7 +22,21 @@
           {% for review in reviews %}
           <div class="review">
               <h3><a href="display/{{ review.book.id }}">{{ review.book.title }}</a></h3>
-              <h4 class="indent">Rating: {{ review.stars }} stars</h4>
+              <h4 class="indent">Rating:
+              {% if review.rating == 0 %}
+                <span class="stars">&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;</span>
+              {% elif review.rating == 1 %}
+                <span class="stars"><span class="orange">&#x2605;</span>&#x2606;&#x2606;&#x2606;&#x2606;</span>
+              {% elif review.rating == 2 %}
+                <span class="stars"><span class="orange">&#x2605;&#x2605;</span>&#x2606;&#x2606;&#x2606;</span>
+              {% elif review.rating == 3 %}
+                <span class="stars"><span class="orange">&#x2605;&#x2605;&#x2605;</span>&#x2606;&#x2606;</span>
+              {% elif review.rating == 4 %}
+                <span class="stars"><span class="orange">&#x2605;&#x2605;&#x2605;&#x2605;</span>&#x2606;</span>
+              {% else %}
+                <span class="stars"><span class="orange">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span></span>
+              {% endif %}
+              </h4>
               <p class="indent"><a class="bold" href="user_reviews/{{ review.reviewer.id }}">{{ review.reviewer.name }}</a> says : {{ review.review }}</p>
               <p class="indent">Posted on: {{ review.created_at }}</p>
           </div>
@@ -41,10 +55,6 @@
         <p class="red">{{ message }}</p>
       {% endfor %}
     </div>
-    <p>&#x2605;&#x2605;&#x2605;&#x2606;&#x2606;</p>
-    {% for review in reviews %}
-      {{ review.stars }}
-    {% endfor %}
   </body>
 
 </html>

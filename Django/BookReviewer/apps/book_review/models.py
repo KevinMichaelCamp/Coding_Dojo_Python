@@ -89,7 +89,6 @@ class Book(models.Model):
 class Review(models.Model):
     review = models.TextField()
     rating = models.SmallIntegerField(blank=True, null=True)
-    stars = models.CharField(max_length=255, null=True)
     book = models.ForeignKey(Book, related_name='reviews', on_delete=models.CASCADE)
     reviewer = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

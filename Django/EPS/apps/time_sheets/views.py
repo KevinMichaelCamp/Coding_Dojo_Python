@@ -281,17 +281,16 @@ def register(request):
             total_points = 0,
             password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
         )
+        request.session['id'] = user.id
 
         if len(User.objects.all()) == 1:
             user.user_level = 9
             user.save()
             messages.success(request, "New Admin Added")
-            request.session['id'] = user.id
             return redirect('/home')
 
         else:
             messages.success(request, "New User Added")
-            request.session['id'] = user.id
             return redirect('/home')
 
 

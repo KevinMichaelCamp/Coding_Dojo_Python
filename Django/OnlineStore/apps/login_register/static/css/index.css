@@ -1,0 +1,26 @@
+.alert {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.container {
+  padding: 20px;
+}
+
+form {
+  margin-left: 10px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+input {
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}

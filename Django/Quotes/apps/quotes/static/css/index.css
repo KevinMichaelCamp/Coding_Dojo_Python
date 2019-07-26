@@ -1,0 +1,8 @@
+body {
+  font-family: arial;
+}
+
+.login, .registration {
+  display: inline-block;
+  width: 500px;
+}

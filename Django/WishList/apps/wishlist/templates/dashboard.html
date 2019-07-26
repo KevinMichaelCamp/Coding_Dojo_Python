@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>My Wish List</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Hello, {{ user.username }}!</h1>
+    <a href="logout">Logout</a>
+  </div>
+  <div class="wishlist">
+    <h2>Your Wish List:</h2>
+    <table>
+      <thead>
+        <th>Item</th>
+        <th>Added By</th>
+        <th>Date Added</th>
+        <th>Action</th>
+      </thead>
+      <tr>
+
+      </tr>
+    </table>
+  </div>
+  <div class="otherslist">
+    <h2>Other Users' Wish List:</h2>
+    <table>
+      <thead>
+        <th>Item</th>
+        <th>Added By</th>
+        <th>Date Added</th>
+        <th>Action</th>
+      </thead>
+    </table>
+  </div>
+</body>
+
+</html>

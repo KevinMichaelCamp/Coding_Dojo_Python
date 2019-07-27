@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^addme/(?P<id>\d+)$', views.addme),
     url(r'^dashboard$', views.dashboard),
     url(r'^delete/(?P<id>\d+)$', views.delete),
+    url(r'^display/(?P<id>\d+)$', views.display),
     url(r'^login$', views.login),
     url(r'^logout$', views.logout),
     url(r'^create$', views.create),

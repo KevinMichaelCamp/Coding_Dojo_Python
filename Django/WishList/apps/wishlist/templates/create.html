@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
   </head>
   <body>
-    <div class="header">
-      <a href="/dashboard">Home</a>
-      <a href="/logout">Logout</a>
-      <h1>Create a New Wish List Item</h1>
-    </div>
-    <div class="item">
-      <form action="/add" method="post">
-        {% csrf_token %}
-        <label for="item_name">Item/Product</label>
-        <input type="text" name="item_name">
-        <button type="submit">Add</button>
-      </form>
+    <div class="container">
+      <div class="links">
+        <a href="/logout">Logout</a>
+        <a href="/dashboard">Home</a>
+      </div>
+      <div class="body">
+        <h1>Create a New Wish List Item</h1>
+        <form action="/add" method="post">
+          {% csrf_token %}
+          <label for="item_name">Item/Product</label>
+          <input type="text" name="item_name">
+          <button type="submit">Add</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

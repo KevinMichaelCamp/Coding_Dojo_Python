@@ -9,57 +9,61 @@
 </head>
 
 <body>
-  <div class="header">
+  <div class="container">
+    <div class="links">
+      <a href="logout">Logout</a>
+    </div>
     <h1>Hello, {{ user.username }}!</h1>
-    <a class="float" href="logout">Logout</a>
+    <div class="wishlist">
+      <h2>Your Wish List:</h2>
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Added By</th>
+          <th>Date Added</th>
+          <th>Action</th>
+        </thead>
+        {% for item in user_items %}
+        <tr>
+          <td><a href="/display/{{ item.id }}">{{ item.item_name }}</a></td>
+          <td>{{ item.added_by.username }}</td>
+          <td>{{ item.created_at }}</td>
+          <td class="center"><a href="/delete/{{ item.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        {% for item in user_other_items %}
+        <tr>
+          <td><a href="/display/{{ item.id }}">{{ item.item_name }}</a></td>
+          <td>{{ item.added_by.username }}</td>
+          <td>{{ item.created_at }}</td>
+          <td class="center"><a href="/remove/{{ item.id }}">Remove from my Wish List</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="otherslist">
+      <h2>Other Users' Wish List:</h2>
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Added By</th>
+          <th>Date Added</th>
+          <th>Action</th>
+        </thead>
+        {% for item in others_items %}
+        <tr>
+          <td><a href="/display/{{ item.id }}">{{ item.item_name }}</a></td>
+          <td>{{ item.added_by.username }}</td>
+          <td>{{ item.created_at }}</td>
+          <td class="center"><a href="/addme/{{ item.id }}">Add to my Wish List</a> </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="links">
+      <a href="create">Add Item</a>
+    </div>
   </div>
-  <div class="wishlist">
-    <h2>Your Wish List:</h2>
-    <table>
-      <thead>
-        <th>Item</th>
-        <th>Added By</th>
-        <th>Date Added</th>
-        <th>Action</th>
-      </thead>
-      {% for item in user_items %}
-      <tr>
-        <td>{{ item.item_name }}</td>
-        <td>{{ item.added_by.username }}</td>
-        <td>{{ item.created_at }}</td>
-        <td><a href="/delete/{{ item.id }}">Delete</a></td>
-      </tr>
-      {% endfor %}
-      {% for item in user_other_items %}
-      <tr>
-        <td>{{ item.item_name }}</td>
-        <td>{{ item.added_by.username }}</td>
-        <td>{{ item.created_at }}</td>
-        <td><a href="/remove/{{ item.id }}">Remove from my Wish List</a></td>
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
-  <div class="otherslist">
-    <h2>Other Users' Wish List:</h2>
-    <table>
-      <thead>
-        <th>Item</th>
-        <th>Added By</th>
-        <th>Date Added</th>
-        <th>Action</th>
-      </thead>
-      {% for item in others_items %}
-      <tr>
-        <td>{{ item.item_name }}</td>
-        <td>{{ item.added_by.username }}</td>
-        <td>{{ item.created_at }}</td>
-        <td><a href="/addme/{{ item.id }}">Add to my Wish List</a> </td>
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
-  <a class="float" href="create">Add Item</a>
 </body>
 
 </html>

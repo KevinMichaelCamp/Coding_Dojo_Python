@@ -36,7 +36,7 @@ def create(request):
 def dashboard(request):
     user = User.objects.get(id=request.session['id'])
     context = {
-        'others_items': Item.objects.exclude(added_by=user),
+        'others_items': Item.objects.exclude(added_by=user).exclude(others=user),
         'user': user,
         'user_items': Item.objects.filter(added_by=user),
         'user_other_items': Item.objects.filter(others=user)
@@ -48,6 +48,15 @@ def delete(request, id):
     item = Item.objects.get(id=id)
     item.delete()
     return redirect('/dashboard')
+
+
+def display(request, id):
+    context = {
+        'item': Item.objects.get(id=id),
+        'others': User.objects.filter(others_items=id),
+        'user': User.objects.get(items=id)
+    }
+    return render(request, 'display.html', context)
 
 
 def index(request):

@@ -1,0 +1,25 @@
+a {
+  margin-right: 50px;
+}
+
+body {
+  font-family: arial;
+}
+
+.body {
+  padding-left: 40px;
+}
+
+h2{
+  margin: 40px 0 40px 20px;
+}
+
+h3 {
+  margin-left: 40px;
+}
+
+.links {
+  font-weight: bold;
+  padding: 20px;
+  text-align: right;
+}

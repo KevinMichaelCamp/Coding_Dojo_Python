@@ -32,6 +32,16 @@ class UserManager(models.Manager):
         return errors
 
 
+class ItemManager(models.Manager):
+    def validate_item(self, postData):
+        errors = {}
+
+        if len(postData['item_name']) < 3:
+            errors['item_name'] = "Item name must be at least 3 characters"
+
+        return errors
+
+
 class User(models.Model):
     name = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
@@ -44,3 +54,16 @@ class User(models.Model):
         return "<User object: {} {} {}".format(self.name, self.username, self.hire_date)
 
     objects = UserManager()
+
+
+class Item(models.Model):
+    item_name = models.CharField(max_length=255)
+    added_by = models.ForeignKey(User, related_name='items', on_delete=models.PROTECT)
+    others = models.ManyToManyField(User, related_name='others_items', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return "<Item object: {} {} {}".format(self.item_name, self.added_by, self.others)
+
+    objects = ItemManager()

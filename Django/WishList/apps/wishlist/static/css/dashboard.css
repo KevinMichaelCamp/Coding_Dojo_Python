@@ -1,10 +1,10 @@
-a {
-  float: right;
-  margin: 20px 20px 0 0;
-}
-
 body {
   font-family: arial;
+}
+
+.float {
+  float: right;
+  margin: 20px 20px 0 0;
 }
 
 h1 {
@@ -13,6 +13,10 @@ h1 {
 
 table {
   border-collapse: collapse;
+  display: block;
+  overflow-y: scroll;
+  height: 200px;
+  width: 650px;
 }
 
 td, th {
@@ -21,4 +25,8 @@ td, th {
 
 th {
   background-color: lightgrey;
+}
+
+.wishlist, .otherslist {
+  height: 250px;
 }

@@ -11,7 +11,7 @@
 <body>
   <div class="header">
     <h1>Hello, {{ user.username }}!</h1>
-    <a href="logout">Logout</a>
+    <a class="float" href="logout">Logout</a>
   </div>
   <div class="wishlist">
     <h2>Your Wish List:</h2>
@@ -22,9 +22,22 @@
         <th>Date Added</th>
         <th>Action</th>
       </thead>
+      {% for item in user_items %}
       <tr>
-
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.added_by.username }}</td>
+        <td>{{ item.created_at }}</td>
+        <td><a href="/delete/{{ item.id }}">Delete</a></td>
       </tr>
+      {% endfor %}
+      {% for item in user_other_items %}
+      <tr>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.added_by.username }}</td>
+        <td>{{ item.created_at }}</td>
+        <td><a href="/remove/{{ item.id }}">Remove from my Wish List</a></td>
+      </tr>
+      {% endfor %}
     </table>
   </div>
   <div class="otherslist">
@@ -36,8 +49,17 @@
         <th>Date Added</th>
         <th>Action</th>
       </thead>
+      {% for item in others_items %}
+      <tr>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.added_by.username }}</td>
+        <td>{{ item.created_at }}</td>
+        <td><a href="/addme/{{ item.id }}">Add to my Wish List</a> </td>
+      </tr>
+      {% endfor %}
     </table>
   </div>
+  <a class="float" href="create">Add Item</a>
 </body>
 
 </html>

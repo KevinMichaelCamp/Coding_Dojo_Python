@@ -1,0 +1,36 @@
+body {
+  font-family: arial;
+}
+
+button {
+  display: block;
+  margin: 20px 0 0 175px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  text-align: right;
+}
+
+.header a{
+  margin-right: 20px;
+}
+
+.review {
+  border-top: 1pt solid lightgrey;
+  width: 500px;
+}
+
+.reviews, .add_review {
+  display: inline-block;
+  vertical-align: top;
+  width: 600px;
+}
+
+textarea {
+  display: block;
+  margin-bottom: 20px;
+}

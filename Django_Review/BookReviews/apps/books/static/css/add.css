@@ -1,0 +1,32 @@
+
+body {
+  font-family: arial;
+}
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  text-align: right;
+}
+
+.header a{
+  margin-right: 20px;
+}
+
+.indent {
+  margin-left: 20px;
+}
+
+li {
+  margin: 10px;
+}
+
+.red {
+  color: red;
+}
+
+ul {
+  list-style: none;
+}

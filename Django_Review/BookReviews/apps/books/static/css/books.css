@@ -1,0 +1,42 @@
+body {
+  font-family: arial;
+}
+
+
+.books {
+  border: 1pt solid darkgrey;
+  height: 250px;
+  overflow-y: scroll;
+  padding: 10px;
+  width: 350px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  text-align: right;
+}
+
+.header a{
+  margin-right: 20px;
+}
+
+h4{
+  margin-top: 40px;
+}
+
+.indent{
+  margin-left: 20px;
+}
+
+.other, .recent {
+  display: inline-block;
+  vertical-align: top;
+  width: 600px;
+}
+
+.red {
+  color: red;
+}

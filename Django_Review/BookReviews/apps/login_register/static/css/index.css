@@ -1,0 +1,28 @@
+body {
+  font-family: arial;
+  padding: 20px;
+}
+
+button {
+  margin: 10px 0 0 200px;
+}
+
+.container {
+  text-align: center;
+}
+
+input {
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.login, .register {
+  display: inline-block;
+  margin: 0 40px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.red {
+  color: red;
+}

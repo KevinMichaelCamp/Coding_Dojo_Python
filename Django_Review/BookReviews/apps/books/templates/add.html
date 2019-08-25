@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="/books">Home</a>
+        <a href="/logout">Logout</a>
+      </div>
+      <h1>Add a New Book Title and Review</h1>
+      <form action="/books/create" method="post">
+        {% csrf_token %}
+        <ul>
+          <li><label for="title">Book Title:</label>
+          <input id="title" type="text" name="title"></li>
+          <li><label for="author">Author:</label></li>
+          <li><label class="indent" for="">Choose from the list:</label>
+          <select name="author_id">
+            {% for author in authors %}
+              <option value="{{ author.id }}">{{ author.author }}</option>
+            {% endfor %}
+          </select></li>
+          <li><label class="indent" for="">Or add a new author:</label>
+          <input type="text" name="author"></li>
+          <li><label for="review">Review:</label></li>
+          <li><textarea name="review" rows="8" cols="40"></textarea></li>
+          <li><label for="rating">Rating:</label>
+          <input type="number" name="rating" min="0" max="5"> stars</li>
+        </ul>
+        <button type="submit">Add Book and Review</button>
+      </form>
+      {% if messages %}
+        {% for message in messsages %}
+          <p class="red">{{ message}}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </body>
+</html>

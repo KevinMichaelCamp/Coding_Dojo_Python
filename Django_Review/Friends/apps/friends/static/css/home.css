@@ -1,0 +1,11 @@
+body {
+  font-family: arial;
+}
+
+.red {
+  color: red;
+}
+
+td, th {
+  padding: 10px;
+}

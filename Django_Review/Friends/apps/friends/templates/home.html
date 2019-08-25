@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Homepage</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello, {{ current_user.first_name }}!</h1>
+      <a href="/logout">Logout</a>
+      <h2>User Info</h2>
+      <table>
+        <thead>
+          <th>User ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              {% if user != current_user %}
+              <a href="/friend/{{ user.id }}">Add Friend</a> |
+              <a href="/unfriend/{{ user.id }}">Unfriend</a>
+              {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <th>Friendship ID</th>
+          <th>Friend</th>
+          <th>Friended By</th>
+        </thead>
+        <tbody>
+          {% for friendship in friendships %}
+          <tr>
+            <td>{{ friendship.id }}</td>
+            <td>{{ friendship.friend.first_name }}</td>
+            <td>{{ friendship.friended_by.first_name }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if messages %}
+        {% for message in messages %}
+          <p class="red">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </body>
+</html>

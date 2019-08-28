@@ -1,0 +1,33 @@
+body {
+  font-family: arial;
+  padding: 25px;
+}
+
+button {
+  background-color: darkblue;
+  border-radius: 5px;
+  color: white;
+  float: right;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.container {
+  text-align: center;
+}
+
+input{
+  margin: 10px;
+  padding: 5px;
+}
+
+.login, .register{
+  display: inline-block;
+  margin: 40px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.alert {
+  color: red;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login & Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <div class="container">
+      <div class="register">
+        <form action="/register" method="post">
+          {% csrf_token %}
+          <fieldset>
+            <legend><h2>Register</h2></legend>
+            <table>
+              <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input id="name" type="text" name="name"></td>
+              </tr>
+              <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input id="username" type="text" name="username"></td>
+              </tr>
+              <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input id="password" type="password" name="password"></td>
+              </tr>
+              <tr>
+                <td colspan="2">*Password should be at least 8 characters</td>
+              </tr>
+              <tr>
+                <td><label for="pw_confirm">Confirm PW:</label></td>
+                <td><input id="pw_confirm" type="password" name="pw_confirm"></td>
+              </tr>
+              <tr>
+                <td><label for="hire_date">Date Hired:</label></td>
+                <td><input id="hire_date" type="date" name="hire_date"></td>
+              </tr>
+            </table>
+            <button type="submit">Register</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="login">
+        <form action="/login" method="post">
+          {% csrf_token %}
+          <fieldset>
+            <legend><h2>Login</h2></legend>
+            <table>
+              <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input id="username" type="text" name="username"></td>
+              </tr>
+              <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input id="password" type="password" name="password"></td>
+              </tr>
+            </table>
+            <button type="submit">Login</button>
+          </fieldset>
+        </form>
+      </div>
+      {% if messages %}
+        {% for message in messages %}
+          <p class="alert">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </body>
+</html>

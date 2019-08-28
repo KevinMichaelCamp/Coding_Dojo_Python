@@ -1,0 +1,21 @@
+body {
+  font-family: arial;
+  padding: 25px;
+}
+
+button {
+  background-color: darkblue;
+  border-radius: 5px;
+  color: white;
+  float: right;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.header {
+  text-align: right;
+}
+
+input {
+  padding: 5px;
+}

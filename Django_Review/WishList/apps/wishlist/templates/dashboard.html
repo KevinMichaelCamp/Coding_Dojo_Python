@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Wish List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  </head>
+  <body>
+    <div class="header">
+      <a href="/logout">Logout</a>
+    </div>
+    <div class="container">
+      <h1>Hello, {{ user.name }}!</h1>
+      <h2>Your Wish List:</h2>
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Added By</th>
+          <th>Date Added</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          {% for item in user_items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.added_by.name }}</td>
+            <td>{{ item.created_at }}</td>
+            <td>Add</td>
+          </tr>
+          {% endfor %}
+          {% for item in user_other_items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.added_by.name }}</td>
+            <td>{{ item.created_at }}</td>
+            <td>Add</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <h2>Other Users' Wish List</h2>
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Added By</th>
+          <th>Date Added</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          {% for item in other_items %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.added_by.name }}</td>
+            <td>{{ item.created_at }}</td>
+            <td>Add</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="header">
+      <a href="/add">Add Item</a>
+    </div>
+  </body>
+</html>

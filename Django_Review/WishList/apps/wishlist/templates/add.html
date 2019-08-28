@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Item</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+  </head>
+  <body>
+    <div class="header">
+      <a href="/display">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
+    <div class="container">
+      <h1>Create New Wish List Item</h1>
+      <form action="/create" method="post">
+        {% csrf_token %}
+        <label for="name">Item/Product:</label>
+        <input id="name" type="text" name="name">
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>

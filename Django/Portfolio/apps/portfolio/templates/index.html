@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kevin Camp</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4 pb-2 mt-4 mb-4 border-bottom">Kevin Camp</h1>
+        <div class="row">
+            <div class="col">
+                <img src="{% static 'img/python.png' %}" alt="python img">
+                <a href="/python"><button class="btn btn-outline-light">Python</button></a>
+            </div>
+            <div class="col">
+                <img src="{% static 'img/RUBY.png' %}" alt="ruby img">
+                <a href="/ruby"><button class="btn btn-outline-light">Ruby</button></a>
+            </div>
+            <div class="col">
+                <img src="{% static 'img/MEAN.png' %}" alt="mean img">
+                <a href="/mean"><button class="btn btn-outline-light">MEAN</button></a>
+            </div>
+        </div>
+        <main>
+
+        </main>
+        <div class="row">
+            <div class="col left">
+                <a href="mailto:kevinmichaelcamp@gmail.com">kevinmichaelcamp@gmail.com</a>
+            </div>
+            <div class="col">
+                <a href="https://github.com/KevinMichaelCamp"><img class="smimg" src="{% static 'img/github.png' %}"
+                        alt="github img">&nbsp;&nbsp;github</a>
+            </div>
+            <div class="col right">
+                <a href="tel:972-975-2058">tel: 972.975.2058</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
